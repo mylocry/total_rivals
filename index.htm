@@ -86,10 +86,10 @@
             color: var(--color-accent-highlight);
             text-shadow: 0 0 6px var(--color-accent-highlight), 0 0 12px var(--color-accent-secondary), 0 0 20px var(--color-accent-primary), 0 2px 2px rgba(0,0,0,0.5);
             margin-top: 10px; 
-            margin-bottom: 20px; /* Reduced margin for link block */
+            margin-bottom: 20px; 
         }
 
-        .teams-doc-link-wrapper { /* New wrapper for centering */
+        .teams-doc-link-wrapper { 
             text-align: center;
             margin-bottom: 30px;
         }
@@ -164,7 +164,7 @@
             margin: 40px 0;
         }
 
-        table {
+        table { 
             width: 100%;
             border-collapse: separate;
             border-spacing: 0;
@@ -174,7 +174,7 @@
             overflow: hidden;
         }
 
-        th, td {
+        th, td { 
             border: 1px solid var(--color-bg-element);
             padding: 14px 18px; 
             text-align: left;
@@ -182,7 +182,7 @@
             font-weight: 500;
         }
 
-        th {
+        th { 
             background: linear-gradient(60deg, var(--color-accent-primary), var(--color-accent-tertiary));
             color: var(--color-text-title-main);
             font-family: var(--font-heading);
@@ -191,11 +191,11 @@
             letter-spacing: 1px;
         }
         
-        td {
+        td { 
             background-color: var(--color-bg-main);
             color: var(--color-text-medium);
         }
-        tr:hover td {
+        tr:hover td { 
             background-color: var(--color-bg-element);
             color: var(--color-accent-highlight);
         }
@@ -216,44 +216,16 @@
             color: var(--color-text-dark);
             cursor: help; 
             opacity: 0.7;
-            text-decoration: none; /* Remove underline from span if it gets one */
+            text-decoration: none; 
         }
         .team-member-link-placeholder:hover {
             opacity: 1;
             color: var(--color-accent-primary);
         }
 
-
-        .score-input {
-            width: 55px; 
-            padding: 10px;
-            margin: 0 10px;
-            text-align: center;
-            background-color: rgba(255,255,255,0.08);
-            border: 2px solid var(--color-accent-tertiary);
-            color: var(--color-text-light);
-            font-family: var(--font-heading);
-            font-weight: 600;
-            font-size: 1.2em;
-            border-radius: var(--border-radius-md);
-            transition: all 0.3s ease;
-        }
-        .score-input:focus {
-            background-color: rgba(255,255,255,0.15);
-            border-color: var(--color-accent-highlight);
-            box-shadow: var(--shadow-glow-primary);
-            outline: none;
-        }
-        .score-input[readonly] {
-            background-color: rgba(0,0,0,0.2);
-            border-color: var(--color-text-dark);
-            color: var(--color-text-dark);
-            cursor: not-allowed;
-        }
-
         .match-entry {
-            padding: 12px 15px;
-            margin-bottom: 10px;
+            padding: 15px; 
+            margin-bottom: 12px; 
             background-color: rgba(0,0,0,0.25);
             border-radius: var(--border-radius-md);
             border-left: 4px solid var(--color-accent-secondary);
@@ -262,29 +234,30 @@
             display: flex;
             align-items: center;
             justify-content: space-between; 
-            margin-bottom: 8px;
+            margin-bottom: 10px; 
         }
         .match-details .team-identifier { 
              display: flex;
              align-items: center;
              font-weight: 700; 
              color: var(--color-text-light);
-             font-size: 1.15em;
+             font-size: 1.2em; 
         }
         .match-details .team-identifier svg {
-            width: 18px; height: 18px; margin-right: 6px;
+            width: 18px; height: 18px; margin-right: 8px; 
         }
         .match-details .vs-text {
             font-weight: 700;
             color: var(--color-accent-highlight);
-            margin: 0 10px;
+            margin: 0 15px; 
+            font-size: 1.1em;
         }
         .match-map-info {
-            font-size: 1em; 
+            font-size: 1.05em; 
             color: var(--color-text-light); 
             font-style: normal; 
-            margin-bottom: 10px; 
-            padding: 10px; 
+            margin-bottom: 12px; 
+            padding: 12px; 
             background-color: rgba(0,0,0,0.2); 
             border-radius: var(--border-radius-small);
             text-align: center;
@@ -294,18 +267,24 @@
          .match-map-info strong {
             color: var(--color-accent-primary);
          }
-        .score-line { 
-            display: flex;
-            align-items: center;
-            justify-content: center; 
+        .match-score-display { 
+            font-size: 1.3em;
+            font-weight: 700;
+            color: var(--color-accent-highlight);
+            text-align: center;
+            padding: 8px 0;
+        }
+        .match-score-display .placeholder {
+            color: var(--color-text-dark);
+            font-style: italic;
+            font-size: 0.9em;
         }
 
-
-        .score-controls {
+        .score-controls { 
             text-align: center;
             margin: 25px 0;
         }
-        .score-lock-button, .update-button, .share-table-button { 
+        .share-table-button { 
             padding: 14px 28px; 
             color: white;
             border: none;
@@ -319,31 +298,15 @@
             box-shadow: 0 0 12px rgba(0,0,0,0.6), inset 0 0 6px rgba(255,255,255,0.15);
             transition: all 0.3s ease;
             margin: 10px; 
-        }
-        .score-lock-button {
-            background: linear-gradient(60deg, var(--color-accent-success), #28a745); 
-        }
-        .score-lock-button.locked {
-             background: linear-gradient(60deg, var(--color-accent-danger), #dc3545); 
-        }
-        .update-button {
-            background: linear-gradient(60deg, var(--color-accent-secondary), var(--color-accent-tertiary));
-        }
-        .share-table-button { 
             background: linear-gradient(60deg, var(--color-accent-primary), var(--color-accent-tertiary));
-            font-size: 1.1em; 
-            padding: 12px 24px;
         }
-
-
-        .score-lock-button:hover, .update-button:hover, .share-table-button:hover {
+        .share-table-button:hover {
             transform: scale(1.05);
             opacity: 0.9;
         }
-        .score-lock-button:focus, .update-button:focus, .share-table-button:focus {
+        .share-table-button:focus {
             outline: 3px solid var(--color-accent-highlight);
         }
-
 
         .section {
             margin-bottom: 45px;
@@ -434,21 +397,49 @@
          .grand-final-perks strong { 
             color: var(--color-accent-highlight);
          }
-        #shareableTableContainer {
-            margin-top: 20px;
+        
+        #shareableTableCardContainer {
+            margin: 30px auto;
+            padding: 20px;
+            background: var(--color-bg-main);
+            border: 2px solid var(--color-accent-primary);
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 0 20px rgba(0, 209, 255, 0.25);
+            max-width: 700px; 
         }
-        #shareableTableText {
+        #shareableTableCardContainer h3 {
+            text-align: center;
+            color: var(--color-accent-highlight);
+            margin-bottom: 15px;
+        }
+        .shareable-html-table {
             width: 100%;
-            min-height: 150px;
-            padding: 10px;
-            background-color: rgba(0,0,0,0.3);
-            border: 1px solid var(--color-accent-primary);
+            border-collapse: collapse;
+            font-size: 0.95em;
             color: var(--color-text-light);
-            font-family: monospace; 
-            font-size: 0.9em;
-            border-radius: var(--border-radius-md);
-            white-space: pre; 
-            box-sizing: border-box; 
+        }
+        .shareable-html-table th, .shareable-html-table td {
+            border: 1px solid var(--color-bg-element);
+            padding: 10px 12px;
+            text-align: left;
+        }
+        .shareable-html-table th {
+            background-color: var(--color-accent-tertiary);
+            color: var(--color-text-title-main);
+            font-family: var(--font-heading);
+            text-transform: uppercase;
+        }
+        .shareable-html-table td {
+            background-color: var(--color-bg-main);
+        }
+        .shareable-html-table tr:nth-child(even) td {
+            background-color: var(--color-bg-element);
+        }
+        .shareable-html-table .team-icon-share svg { 
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            vertical-align: middle;
         }
 
 
@@ -456,16 +447,17 @@
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .container > .section, .container > h1, .teams-doc-link-wrapper { /* Added link wrapper to animation */
+        .container > .section, .container > h1, .teams-doc-link-wrapper { 
             animation: fadeInFromBottom 0.6s ease-out forwards;
         }
-        .container > .section:nth-child(2) { animation-delay: 0.1s; } /* Adjust delays as needed */
+        .container > .section:nth-child(2) { animation-delay: 0.1s; }
 
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>MARVEL GAME NIGHTS!</h1> 
+        <h1>MARVEL Rivals</h1> 
+        <h1>Saturday nights</h1> 
 
         <div class="teams-doc-link-wrapper">
             <a href="https://docs.google.com/spreadsheets/d/1B-Ogkj1nWrhqDxgpBvGmtZEcLpOPfbdFbDntJlUqX2o/edit?gid=730262166#gid=730262166" target="_blank" class="teams-doc-link">
@@ -485,7 +477,7 @@
                         <li>All 5 teams will play against each other <strong>one time</strong> (a single round-robin).</li>
                         <li>Every Saturday, starting <strong><span id="startDateDisplay">June 21, 2025</span></strong>, we'll have 2 matches. One team gets a break (a "bye"). This goes on for 5 weeks!</li>
                         <li>Matches are "Best of 3" rounds – first team to win 2 rounds wins the match!</li>
-                        <li><strong>Maps & Game Modes for these games will be picked randomly for each match!</strong></li>
+                        <li><strong>Maps & Game Modes for these games will be picked randomly for each match following special rules!</strong> (Details below).</li>
                     </ul>
                 </li>
                 <hr class="custom-divider">
@@ -497,22 +489,22 @@
                     </ul>
                 </li>
             </ul>
+             <p class="note"><strong>Important Note on Team Mode Distribution:</strong> The system guarantees one Domination game per Saturday and varies other modes. While it aims for variety, guaranteeing *every* team plays *exactly* 1 Convergence, 1 Convoy, and 2 Domination games in this 10-match schedule is mathematically complex. Teams will get a good mix, but exact counts per team for Convoy/Convergence may vary slightly.</p>
         </div>
 
         <div class="section scoring-section"> 
             <h2>How Points Work</h2>
-            <p>For the group stage, here’s how teams get points for each "Best of 3" match:</p>
+            <p>For the group stage, here’s how teams get points for each "Best of 3" match (<strong>you, the organizer, will update these scores directly in this HTML file's code</strong>):</p>
             <ul>
-                <li><strong>WIN the Match (score 2-0 or 2-1 in rounds):</strong> Get <strong>3 Points!</strong></li>
-                <li><strong>LOSE the Match (but win 1 round, score 1-2):</strong> Still get <strong>1 Point!</strong> (Good effort!)</li>
-                <li><strong>LOSE the Match (and win 0 rounds, score 0-2):</strong> Get <strong>0 Points.</strong> (Better luck next time!)</li>
+                <li><strong>WIN the Match (score 2-0 or 2-1 in rounds):</strong> Give team <strong>3 Points!</strong></li>
+                <li><strong>LOSE the Match (but win 1 round, score 1-2):</strong> Team still gets <strong>1 Point!</strong> (Good effort!)</li>
+                <li><strong>LOSE the Match (and win 0 rounds, score 0-2):</strong> Team gets <strong>0 Points.</strong></li>
             </ul>
-            <p class="note">Remember, a "Best of 3" match ends as soon as one team wins 2 rounds. So, there are no ties in a match – someone always wins!</p>
+            <p class="note">A "Best of 3" match ends as soon as one team wins 2 rounds. Scores (like 2-0, 1-2) should be entered into the `matches` array in the script part of this file.</p>
         </div>
 
         <div class="section rules-section">
-            <h2>Hero Bans: The Pre-Game Strategy!</h2>
-            <p>Before each game starts, teams will do a "Ban Phase". This is where you make smart choices to outwit the other team!</p>
+            <h2>Hero Bans: The Pre-Game Strategy!</h2> <p>Before each game starts, teams will do a "Ban Phase". This is where you make smart choices to outwit the other team!</p>
             
             <h4>The Ban Phase (4 Heroes Banned Total):</h4>
             <p>Each team gets to ban <strong>TWO heroes</strong>. Here's how it works:</p>
@@ -528,10 +520,6 @@
         <div class="section round-robin-section">
             <h2>Group Stage: Current Scores!</h2>
             
-            <div class="score-controls">
-                 <button id="scoreLockButton" class="score-lock-button">Unlock Score Inputs</button>
-            </div>
-
             <table id="leagueTable">
                 <thead>
                     <tr>
@@ -549,21 +537,19 @@
                     </tbody>
             </table>
             <div class="score-controls"> 
-                <button class="share-table-button" onclick="generateShareableTable()">Generate Shareable Table Text</button>
+                <button class="share-table-button" onclick="generateShareableTableCard()">Show Shareable Table Card</button>
             </div>
-            <div id="shareableTableContainer" style="display:none;">
-                <h3>Copy Table Text Below:</h3>
-                <textarea id="shareableTableText" readonly rows="10"></textarea>
+            <div id="shareableTableCardContainer" style="display:none;">
+                <h3>Shareable League Standings:</h3>
+                <div id="shareableTableDisplay"></div>
+                <p class="note" style="text-align:center; margin-top:15px;">You can screenshot this card to share!</p>
             </div>
 
 
-            <h3>Match Schedule & Score Input</h3>
-            <p class="note">Enter how many rounds each team won (0, 1, or 2). A match is over when one team wins 2 rounds. <strong>Remember to click "Unlock Score Inputs" above to enter scores!</strong></p>
+            <h3>Match Schedule & Results</h3>
+            <p class="note">Scores below are updated by editing the `matches` array in this HTML file's JavaScript code. After editing, save the file and refresh the page.</p>
             <div id="matchSchedule">
                 </div>
-            <div class="score-controls">
-                <button class="update-button" onclick="calculateAllScores()">Update Scores & Table</button>
-            </div>
         </div>
 
         <div class="section playoffs-section">
@@ -613,20 +599,22 @@
             return date.toLocaleDateString('en-US', options);
         }
 
+        const mapPools = {
+            Convergence: [
+                "Empire Of Eternal Night: Central Park", "Intergalactic Empire of Wakanda: Hall of Djalia", 
+                "Klyntar: Symbiotic Surface", "Tokyo 2099: Shin-Shibuya"
+            ],
+            Convoy: [
+                "Arakko", "Empire Of Eternal Night: Midtown", 
+                "Tokyo 2099: Spider-Islands", "Yggsgard: Yggdrasill Path"
+            ],
+            Domination: [
+                "Hellfire Gala: Krakoa", "Hydra Charteris Base: Hell’s Heaven", 
+                "Intergalactic Empire of Wakanda: Birnin T’Challa", "Yggsgard: Royal Palace"
+            ]
+        };
+        const nonDominationModeNames = ['Convoy', 'Convergence'];
 
-        const mapPool = [
-            { mapName: "Yggsgard: Royal Palace", gameMode: "Convergence" },
-            { mapName: "Yggsgard: Yggdrasill Path", gameMode: "Convergence" },
-            { mapName: "Tokyo 2099: Shin-Shibuya", gameMode: "Domination" },
-            { mapName: "Tokyo 2099: Spider-Islands", gameMode: "Convoy" },
-            { mapName: "Asgard: Rainbow Bridge", gameMode: "Convoy" },
-            { mapName: "Asgard: Queen's Summons Chamber", gameMode: "Domination" },
-            { mapName: "Intergalactic Empire of Wakanda: Birnin T'Challa", gameMode: "Convoy" },
-            { mapName: "Intergalactic Empire of Wakanda: Hall of Djalia", gameMode: "Domination" },
-            { mapName: "Klyntar: Symbiotic Surface", gameMode: "Convergence" },
-            { mapName: "Hydra Charteris Base: Hell's Heaven", gameMode: "Domination" },
-            { mapName: "The Raft: Maximum Security", gameMode: "Convergence" }
-        ];
 
         const pixelIcons = {
             red: `<svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg"><path d="M2 2h6v6H2z" fill="currentColor"/></svg>`, 
@@ -644,33 +632,84 @@
             { id: 5, name: "Team Purple", color: 'var(--team-color-purple)', icon: pixelIcons.purple, played: 0, wins: 0, losses: 0, roundsWon: 0, roundsLost: 0, points: 0 }
         ];
 
-        let scoreInputsLocked = true; 
+        // SCORES ARE MANUALLY ENTERED HERE BY THE ORGANIZER
+        // For each match, set team1Score and team2Score (e.g., 2 and 0, or 1 and 2)
+        // If a match hasn't been played, keep scores as null.
+        let matches = [
+            // Day: Saturday Number (1-5)
+            // team1Id, team2Id: From the 'teams' array above
+            // byeTeamId: Team not playing that specific day
+            // team1Score, team2Score: Rounds won by team1 and team2 respectively. 
+            //   Set to numbers (e.g., 2 and 0) when a match is played.
+            //   Keep as null if not played yet.
+            // mapName, gameMode: Will be auto-filled by the script.
+            // played: Will be auto-set by the script based on scores.
 
-        let matches = [];
-        // Single Round Robin schedule for 5 teams (10 matches over 5 Saturdays)
-        const pairings_single_rr = [
-            { day: 1, t1: 1, t2: 5, bye: 3 }, { day: 1, t1: 2, t2: 4, bye: 3 }, 
-            { day: 2, t1: 1, t2: 4, bye: 5 }, { day: 2, t1: 2, t2: 3, bye: 5 }, 
-            { day: 3, t1: 1, t2: 3, bye: 2 }, { day: 3, t1: 5, t2: 4, bye: 2 }, 
-            { day: 4, t1: 1, t2: 2, bye: 4 }, { day: 4, t1: 5, t2: 3, bye: 4 }, 
-            { day: 5, t1: 2, t2: 5, bye: 1 }, { day: 5, t1: 4, t2: 3, bye: 1 }  
+            // Example for one match played:
+            // { day: 1, team1Id: 1, team2Id: 5, byeTeamId: 3, team1Score: 2, team2Score: 0, mapName: null, gameMode: null, played: false }, 
+            
+            { day: 1, team1Id: 1, team2Id: 5, byeTeamId: 3, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
+            { day: 1, team1Id: 2, team2Id: 4, byeTeamId: 3, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
+            
+            { day: 2, team1Id: 1, team2Id: 4, byeTeamId: 5, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
+            { day: 2, team1Id: 2, team2Id: 3, byeTeamId: 5, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
+            
+            { day: 3, team1Id: 1, team2Id: 3, byeTeamId: 2, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
+            { day: 3, team1Id: 5, team2Id: 4, byeTeamId: 2, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
+            
+            { day: 4, team1Id: 1, team2Id: 2, byeTeamId: 4, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
+            { day: 4, team1Id: 5, team2Id: 3, byeTeamId: 4, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
+            
+            { day: 5, team1Id: 2, team2Id: 5, byeTeamId: 1, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
+            { day: 5, team1Id: 4, team2Id: 3, byeTeamId: 1, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }  
         ];
         
-        pairings_single_rr.forEach(p => {
-            matches.push({
-                day: p.day, team1Id: p.t1, team2Id: p.t2, 
-                team1Rounds: null, team2Rounds: null, played: false, 
-                byeTeamId: p.bye, mapName: null, gameMode: null
-            });
-        });
+        function getRandomElement(arr) {
+            if (!arr || arr.length === 0) return null;
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
 
+        function assignMapsAndModesToMatches() {
+            // Keep track of used maps for each mode to promote variety
+            let usedMaps = {
+                Convergence: new Set(),
+                Convoy: new Set(),
+                Domination: new Set()
+            };
 
-        function assignRandomMapsAndModes() {
-            matches.forEach(match => {
-                const randomMapData = mapPool[Math.floor(Math.random() * mapPool.length)];
-                match.mapName = randomMapData.mapName;
-                match.gameMode = randomMapData.gameMode;
-            });
+            // Helper to get a map for a specific mode, prioritizing unused
+            function getMapForMode(modeName) {
+                let availableMaps = mapPools[modeName].filter(map => !usedMaps[modeName].has(map));
+                if (availableMaps.length === 0) { // All maps for this mode used once
+                    usedMaps[modeName].clear(); // Reset for this mode
+                    availableMaps = [...mapPools[modeName]];
+                }
+                const chosenMap = getRandomElement(availableMaps);
+                if (chosenMap) {
+                    usedMaps[modeName].add(chosenMap);
+                }
+                return chosenMap || getRandomElement(mapPools[modeName]); // Fallback if something unexpected happens
+            }
+
+            for (let i = 0; i < matches.length; i += 2) { // Process matches in pairs (per day)
+                const match1 = matches[i];
+                const match2 = matches[i + 1];
+
+                // One Domination game per day, the other is Convoy or Convergence
+                const match1IsDomination = Math.random() < 0.5;
+                
+                const domMatch = match1IsDomination ? match1 : match2;
+                const otherMatch = match1IsDomination ? match2 : match1;
+
+                // Assign Domination
+                domMatch.mapName = getMapForMode("Domination");
+                domMatch.gameMode = "Domination";
+
+                // Assign Convoy or Convergence to the other match
+                const otherModeName = getRandomElement(nonDominationModeNames); // 'Convoy' or 'Convergence'
+                otherMatch.mapName = getMapForMode(otherModeName);
+                otherMatch.gameMode = otherModeName;
+            }
         }
 
 
@@ -685,36 +724,11 @@
             document.getElementById('playoffDate2Header').textContent = `(${formatDate(playoffSat2Date)})`;
             document.getElementById('playoffDate2HeaderThird').textContent = `(${formatDate(playoffSat2Date)})`;
 
-            assignRandomMapsAndModes(); 
-            renderMatchSchedule();
-            renderLeagueTable();
-            updatePlayoffDisplay();
-            setupScoreLock();
-            toggleScoreInputsReadOnly(true); 
+            assignMapsAndModesToMatches(); 
+            calculateTeamStatsFromMatches(); 
+            renderMatchSchedule(); 
         });
         
-        function setupScoreLock() {
-            const lockButton = document.getElementById('scoreLockButton');
-            lockButton.addEventListener('click', () => {
-                scoreInputsLocked = !scoreInputsLocked;
-                toggleScoreInputsReadOnly(scoreInputsLocked);
-                if (scoreInputsLocked) {
-                    lockButton.textContent = 'Unlock Score Inputs';
-                    lockButton.classList.remove('locked'); 
-                } else {
-                    lockButton.textContent = 'Lock Score Inputs';
-                    lockButton.classList.add('locked'); 
-                }
-            });
-        }
-
-        function toggleScoreInputsReadOnly(isLocked) {
-            const scoreInputs = document.querySelectorAll('.score-input');
-            scoreInputs.forEach(input => {
-                input.readOnly = isLocked;
-            });
-        }
-
         function getTeam(teamId) {
             return teams.find(t => t.id === teamId);
         }
@@ -722,7 +736,6 @@
             const team = getTeam(teamId);
             return team ? team.name : 'Unknown Team';
         }
-
 
         function renderMatchSchedule() {
             const scheduleDiv = document.getElementById('matchSchedule');
@@ -741,6 +754,11 @@
 
                 const team1 = getTeam(match.team1Id);
                 const team2 = getTeam(match.team2Id);
+                
+                let scoreText = `<span class="placeholder">Match Awaiting Scores</span>`;
+                if (typeof match.team1Score === 'number' && typeof match.team2Score === 'number') {
+                    scoreText = `${match.team1Score} - ${match.team2Score}`;
+                }
 
                 const matchDiv = document.createElement('div');
                 matchDiv.classList.add('match-entry');
@@ -753,15 +771,12 @@
                     <div class="match-map-info">
                         <strong>Map:</strong> ${match.mapName || 'TBD'} &nbsp;&nbsp;&nbsp; <strong>Mode:</strong> ${match.gameMode || 'TBD'}
                     </div>
-                    <div class="score-line">
-                        <input type="number" class="score-input editable" id="t1r_m${index}" min="0" max="2" placeholder="0" value="${match.team1Rounds !== null ? match.team1Rounds : ''}">
-                        <span>-</span>
-                        <input type="number" class="score-input editable" id="t2r_m${index}" min="0" max="2" placeholder="0" value="${match.team2Rounds !== null ? match.team2Rounds : ''}">
+                    <div class="match-score-display">
+                        ${scoreText}
                     </div>
                 `;
                 scheduleDiv.appendChild(matchDiv);
             });
-            toggleScoreInputsReadOnly(scoreInputsLocked); 
         }
         
         function resetTeamStats() {
@@ -775,42 +790,28 @@
             });
         }
 
-        function calculateAllScores() {
-            if (scoreInputsLocked) {
-                alert("Heads up! Click 'Unlock Score Inputs' before you can change any scores.");
-                return;
-            }
+        function calculateTeamStatsFromMatches() { 
             resetTeamStats();
-
-            matches.forEach((match, index) => {
-                const t1rInput = document.getElementById(`t1r_m${index}`);
-                const t2rInput = document.getElementById(`t2r_m${index}`);
+            matches.forEach((match) => {
+                const t1Rounds = match.team1Score;
+                const t2Rounds = match.team2Score;
                 
-                let t1Val = t1rInput.value.trim();
-                let t2Val = t2rInput.value.trim();
-
-                const t1Rounds = (t1Val === "" || isNaN(parseInt(t1Val))) ? null : parseInt(t1Val);
-                const t2Rounds = (t2Val === "" || isNaN(parseInt(t2Val))) ? null : parseInt(t2Val);
-                
-                match.team1Rounds = t1Rounds;
-                match.team2Rounds = t2Rounds;
-                
-                if ((t1Rounds === 2 && (t2Rounds === 0 || t2Rounds === 1)) ||
-                    (t2Rounds === 2 && (t1Rounds === 0 || t1Rounds === 1))) {
+                if (typeof t1Rounds === 'number' && typeof t2Rounds === 'number' &&
+                    ((t1Rounds === 2 && (t2Rounds === 0 || t2Rounds === 1)) ||
+                     (t2Rounds === 2 && (t1Rounds === 0 || t1Rounds === 1)))) {
                     match.played = true;
                 } else {
                     match.played = false; 
-                    if (t1Rounds !== null || t2Rounds !== null) { /* Allow partial input view */ }
                     return; 
                 }
                 
                 const team1 = getTeam(match.team1Id);
                 const team2 = getTeam(match.team2Id);
 
-                if (!team1 || !team2 || !match.played) return;
+                if (!team1 || !team2) return;
 
-                let r1 = match.team1Rounds;
-                let r2 = match.team2Rounds;
+                let r1 = t1Rounds;
+                let r2 = t2Rounds;
 
                 team1.played++;
                 team2.played++;
@@ -886,7 +887,9 @@
                 div.innerHTML = `<span class="team-placeholder">${teamAName || defaultTextA}</span> vs <span class="team-placeholder">${teamBName || defaultTextB}</span> <span class="seed-info">${seedInfo}</span>`;
             };
 
-            if (sortedTeams.length >= 4 && teams.some(t => t.played > 0)) { 
+            const anystats = teams.some(t => t.played > 0);
+
+            if (sortedTeams.length >= 4 && anystats) { 
                 setMatchText(sf1Div, getTeamName(sortedTeams[0].id), getTeamName(sortedTeams[3].id), "Seed 1", "Seed 4", "(Match A)");
                 setMatchText(sf2Div, getTeamName(sortedTeams[1].id), getTeamName(sortedTeams[2].id), "Seed 2", "Seed 3", "(Match B)");
                 setMatchText(finalDiv, "Winner of Match A", "Winner of Match B", "TBD", "TBD", "(For the Championship!)");
@@ -899,11 +902,24 @@
             }
         }
 
-        function generateShareableTable() {
-            const tableContainer = document.getElementById('shareableTableContainer');
-            const textArea = document.getElementById('shareableTableText');
-            let tableText = "Rank | Team                 | Pld | W | L | RW | RL | Pts\n";
-            tableText +=    "---------------------------------------------------------------\n";
+        function generateShareableTableCard() { 
+            const cardContainer = document.getElementById('shareableTableCardContainer');
+            const displayDiv = document.getElementById('shareableTableDisplay');
+            
+            let tableHTML = `<table class="shareable-html-table">
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>Team</th>
+                                        <th>Pld</th>
+                                        <th>W</th>
+                                        <th>L</th>
+                                        <th>RW</th>
+                                        <th>RL</th>
+                                        <th>Pts</th>
+                                    </tr>
+                                </thead>
+                                <tbody>`;
 
             const sortedTeams = [...teams].sort((a, b) => {
                 if (b.points !== a.points) return b.points - a.points;
@@ -915,20 +931,23 @@
             });
 
             sortedTeams.forEach((team, index) => {
-                const rank = (index + 1).toString().padEnd(4);
-                const name = team.name.padEnd(20);
-                const pld = team.played.toString().padEnd(3);
-                const w = team.wins.toString().padEnd(1);
-                const l = team.losses.toString().padEnd(1);
-                const rw = team.roundsWon.toString().padEnd(2);
-                const rl = team.roundsLost.toString().padEnd(2);
-                const pts = team.points.toString().padEnd(3);
-                tableText += `${rank} | ${name} | ${pld} | ${w} | ${l} | ${rw} | ${rl} | ${pts}\n`;
+                tableHTML += `<tr>
+                                <td>${index + 1}</td>
+                                <td style="color: ${team.color}; display: flex; align-items: center;">
+                                    <span class="team-icon-share" style="color: ${team.color};">${team.icon || ''}</span> <span style="margin-left: 5px;">${team.name}</span>
+                                </td>
+                                <td>${team.played}</td>
+                                <td>${team.wins}</td>
+                                <td>${team.losses}</td>
+                                <td>${team.roundsWon}</td>
+                                <td>${team.roundsLost}</td>
+                                <td>${team.points}</td>
+                              </tr>`;
             });
             
-            textArea.value = tableText;
-            tableContainer.style.display = 'block';
-            textArea.select(); 
+            tableHTML += `</tbody></table>`;
+            displayDiv.innerHTML = tableHTML;
+            cardContainer.style.display = 'block';
         }
 
     </script>
