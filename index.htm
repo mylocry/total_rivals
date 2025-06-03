@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marvel Game Night - Company Tournament!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;500;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --font-display: 'Orbitron', sans-serif; 
+            --font-heading: 'Rajdhani', sans-serif; 
+            --font-body: 'Roboto', sans-serif;    
+
+            --color-bg-deep: #080a13; 
+            --color-bg-main: #0f1423; 
+            --color-bg-section: rgba(18, 23, 40, 0.9); 
+            --color-bg-element: #1e253f; 
+            
+            --color-text-light: #f0f0f5;
+            --color-text-medium: #c0c0d0;
+            --color-text-dark: #808090;
+            --color-text-title-main: #ffffff;
+
+            --color-accent-primary: #00d1ff;   
+            --color-accent-secondary: #ff29b3; 
+            --color-accent-tertiary: #a855f7;  
+            --color-accent-highlight: #f5d742; 
+            --color-accent-success: #36ff9a;  
+            --color-accent-danger: #ff4b4b;   
+
+            /* Team Colors */
+            --team-color-red: #ff4757;
+            --team-color-blue: #3742fa;
+            --team-color-green: #2ed573;
+            --team-color-yellow: #ffa502;
+            --team-color-purple: #706fd3;
+
+            --border-radius-xl: 15px;
+            --border-radius-lg: 10px;
+            --border-radius-md: 6px;
+            
+            --shadow-glow-primary: 0 0 18px rgba(0, 209, 255, 0.6), 0 0 8px rgba(0, 209, 255, 0.4);
+            --shadow-glow-secondary: 0 0 18px rgba(255, 41, 179, 0.6), 0 0 8px rgba(255, 41, 179, 0.4);
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 17px; 
+            line-height: 1.7;
+            margin: 0;
+            padding: 25px;
+            background-color: var(--color-bg-deep);
+            background-image: url('https://www.marvelrivals.com/images/layout/main_bg.jpg'); 
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            color: var(--color-text-light);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            background: rgba(15, 20, 35, 0.92); 
+            padding: 30px 40px;
+            border-radius: var(--border-radius-xl);
+            border: 1px solid var(--color-accent-primary);
+            box-shadow: 0 0 40px rgba(0, 209, 255, 0.35), 0 0 15px rgba(0,0,0,0.6);
+            backdrop-filter: blur(12px);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            color: var(--color-text-title-main);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+        }
+
+        h1 { 
+            text-align: center;
+            font-family: var(--font-display);
+            font-size: 3.2em; 
+            font-weight: 900;
+            color: var(--color-accent-highlight);
+            text-shadow: 0 0 6px var(--color-accent-highlight), 0 0 12px var(--color-accent-secondary), 0 0 20px var(--color-accent-primary), 0 2px 2px rgba(0,0,0,0.5);
+            margin-top: 10px; 
+            margin-bottom: 20px; /* Reduced margin for link block */
+        }
+
+        .teams-doc-link-wrapper { /* New wrapper for centering */
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .teams-doc-link {
+            display: inline-block;
+            text-decoration: none;
+            border-radius: var(--border-radius-lg);
+            transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+        }
+        .teams-doc-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px var(--color-accent-highlight);
+        }
+        .teams-doc-block {
+            background: linear-gradient(45deg, var(--color-accent-highlight), gold);
+            color: var(--color-bg-deep);
+            padding: 15px 30px;
+            font-family: var(--font-display);
+            font-size: 1.8em;
+            font-weight: 700;
+            text-align: center;
+            letter-spacing: 1.5px;
+            border: 3px solid gold;
+            border-radius: var(--border-radius-lg);
+            cursor: pointer;
+        }
+
+
+        h2 { 
+            font-size: 2.4em; 
+            font-weight: 700;
+            color: var(--color-accent-primary);
+            border-bottom: 3px solid var(--color-accent-tertiary);
+            padding-bottom: 12px;
+            margin-top: 45px;
+            margin-bottom: 25px;
+            text-shadow: 0 0 4px var(--color-accent-primary);
+        }
+
+        h3 { 
+            font-size: 1.8em; 
+            color: var(--color-accent-secondary);
+            margin-top: 35px;
+            margin-bottom: 18px;
+            font-weight: 700;
+        }
+        
+        h4 { 
+            font-size: 1.5em; 
+            color: var(--color-accent-tertiary);
+            margin-top: 30px;
+            margin-bottom: 12px;
+            border-left: 4px solid var(--color-accent-highlight);
+            padding-left: 12px;
+            font-weight: 700;
+        }
+        
+        p, li {
+            font-size: 1.15em; 
+            margin-bottom: 12px;
+            color: var(--color-text-medium);
+        }
+        strong {
+            font-weight: 700;
+            color: var(--color-text-light);
+        }
+
+        hr.custom-divider {
+            border: 0;
+            height: 2px;
+            background-image: linear-gradient(to right, rgba(0,0,0,0), var(--color-accent-tertiary), rgba(0,0,0,0));
+            margin: 40px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-bottom: 35px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid var(--color-bg-element);
+            padding: 14px 18px; 
+            text-align: left;
+            font-size: 1.1em; 
+            font-weight: 500;
+        }
+
+        th {
+            background: linear-gradient(60deg, var(--color-accent-primary), var(--color-accent-tertiary));
+            color: var(--color-text-title-main);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        td {
+            background-color: var(--color-bg-main);
+            color: var(--color-text-medium);
+        }
+        tr:hover td {
+            background-color: var(--color-bg-element);
+            color: var(--color-accent-highlight);
+        }
+        .team-name-cell {
+            display: flex;
+            align-items: center;
+            font-weight: 700 !important;
+        }
+        .team-name-cell svg { 
+            width: 20px;   
+            height: 20px;  
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        .team-member-link-placeholder {
+            font-size: 0.9em;
+            margin-left: 8px;
+            color: var(--color-text-dark);
+            cursor: help; 
+            opacity: 0.7;
+            text-decoration: none; /* Remove underline from span if it gets one */
+        }
+        .team-member-link-placeholder:hover {
+            opacity: 1;
+            color: var(--color-accent-primary);
+        }
+
+
+        .score-input {
+            width: 55px; 
+            padding: 10px;
+            margin: 0 10px;
+            text-align: center;
+            background-color: rgba(255,255,255,0.08);
+            border: 2px solid var(--color-accent-tertiary);
+            color: var(--color-text-light);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1.2em;
+            border-radius: var(--border-radius-md);
+            transition: all 0.3s ease;
+        }
+        .score-input:focus {
+            background-color: rgba(255,255,255,0.15);
+            border-color: var(--color-accent-highlight);
+            box-shadow: var(--shadow-glow-primary);
+            outline: none;
+        }
+        .score-input[readonly] {
+            background-color: rgba(0,0,0,0.2);
+            border-color: var(--color-text-dark);
+            color: var(--color-text-dark);
+            cursor: not-allowed;
+        }
+
+        .match-entry {
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            background-color: rgba(0,0,0,0.25);
+            border-radius: var(--border-radius-md);
+            border-left: 4px solid var(--color-accent-secondary);
+        }
+        .match-details { 
+            display: flex;
+            align-items: center;
+            justify-content: space-between; 
+            margin-bottom: 8px;
+        }
+        .match-details .team-identifier { 
+             display: flex;
+             align-items: center;
+             font-weight: 700; 
+             color: var(--color-text-light);
+             font-size: 1.15em;
+        }
+        .match-details .team-identifier svg {
+            width: 18px; height: 18px; margin-right: 6px;
+        }
+        .match-details .vs-text {
+            font-weight: 700;
+            color: var(--color-accent-highlight);
+            margin: 0 10px;
+        }
+        .match-map-info {
+            font-size: 1em; 
+            color: var(--color-text-light); 
+            font-style: normal; 
+            margin-bottom: 10px; 
+            padding: 10px; 
+            background-color: rgba(0,0,0,0.2); 
+            border-radius: var(--border-radius-small);
+            text-align: center;
+            border-top: 1px solid var(--color-bg-element);
+            border-bottom: 1px solid var(--color-bg-element);
+        }
+         .match-map-info strong {
+            color: var(--color-accent-primary);
+         }
+        .score-line { 
+            display: flex;
+            align-items: center;
+            justify-content: center; 
+        }
+
+
+        .score-controls {
+            text-align: center;
+            margin: 25px 0;
+        }
+        .score-lock-button, .update-button, .share-table-button { 
+            padding: 14px 28px; 
+            color: white;
+            border: none;
+            border-radius: var(--border-radius-md);
+            cursor: pointer;
+            font-family: var(--font-display);
+            font-size: 1.3em; 
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.6), inset 0 0 6px rgba(255,255,255,0.15);
+            transition: all 0.3s ease;
+            margin: 10px; 
+        }
+        .score-lock-button {
+            background: linear-gradient(60deg, var(--color-accent-success), #28a745); 
+        }
+        .score-lock-button.locked {
+             background: linear-gradient(60deg, var(--color-accent-danger), #dc3545); 
+        }
+        .update-button {
+            background: linear-gradient(60deg, var(--color-accent-secondary), var(--color-accent-tertiary));
+        }
+        .share-table-button { 
+            background: linear-gradient(60deg, var(--color-accent-primary), var(--color-accent-tertiary));
+            font-size: 1.1em; 
+            padding: 12px 24px;
+        }
+
+
+        .score-lock-button:hover, .update-button:hover, .share-table-button:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+        .score-lock-button:focus, .update-button:focus, .share-table-button:focus {
+            outline: 3px solid var(--color-accent-highlight);
+        }
+
+
+        .section {
+            margin-bottom: 45px;
+            padding: 25px 30px;
+            background: var(--color-bg-section);
+            border: 1px solid var(--color-bg-element);
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+        }
+        .section ul, .section ol {
+            padding-left: 30px;
+        }
+
+        .playoff-bracket {
+            display: flex;
+            flex-wrap: wrap; 
+            justify-content: space-around;
+            align-items: flex-start; 
+            margin-top: 35px;
+            padding: 25px 0;
+        }
+
+        .playoff-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 45px; 
+            margin: 10px; 
+        }
+
+        .playoff-match {
+            background: linear-gradient(145deg, var(--color-bg-element), var(--color-bg-main));
+            border: 2px solid var(--color-accent-primary);
+            box-shadow: var(--shadow-glow-primary);
+            padding: 18px 22px; 
+            margin: 12px 0;
+            border-radius: var(--border-radius-md);
+            width: 280px; 
+            text-align: center;
+            font-family: var(--font-heading);
+            font-weight: 700; 
+            font-size: 1.2em; 
+            color: var(--color-text-light);
+            transition: all 0.3s ease-out;
+        }
+        .playoff-match:hover {
+            transform: translateY(-6px) scale(1.03);
+            border-color: var(--color-accent-highlight);
+            box-shadow: 0 0 25px var(--color-accent-highlight), 0 0 10px var(--color-accent-highlight);
+        }
+        .playoff-match .team-placeholder, .playoff-match .seed-info {
+            display: block;
+            margin: 4px 0;
+        }
+         .playoff-match .seed-info {
+            font-size: 0.85em;
+            color: var(--color-text-medium);
+            font-family: var(--font-body);
+            text-transform: none;
+            letter-spacing: 0.5px;
+        }
+
+        .note {
+            font-style: normal; 
+            font-weight: 500; 
+            color: var(--color-text-medium);
+            background-color: rgba(0,0,0,0.2);
+            padding: 15px; 
+            border-left: 5px solid var(--color-accent-tertiary);
+            border-radius: var(--border-radius-md);
+            margin: 20px 0; 
+            font-size: 1.05em; 
+        }
+        .grand-final-perks { 
+            background-color: rgba(245, 215, 66, 0.1); 
+            border: 1px solid var(--color-accent-highlight);
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: var(--border-radius-md);
+            text-align: center;
+        }
+        .grand-final-perks p {
+            color: var(--color-text-light); 
+            font-weight: 700;
+            font-size: 1.1em;
+            margin: 5px 0;
+        }
+         .grand-final-perks strong { 
+            color: var(--color-accent-highlight);
+         }
+        #shareableTableContainer {
+            margin-top: 20px;
+        }
+        #shareableTableText {
+            width: 100%;
+            min-height: 150px;
+            padding: 10px;
+            background-color: rgba(0,0,0,0.3);
+            border: 1px solid var(--color-accent-primary);
+            color: var(--color-text-light);
+            font-family: monospace; 
+            font-size: 0.9em;
+            border-radius: var(--border-radius-md);
+            white-space: pre; 
+            box-sizing: border-box; 
+        }
+
+
+        @keyframes fadeInFromBottom {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .container > .section, .container > h1, .teams-doc-link-wrapper { /* Added link wrapper to animation */
+            animation: fadeInFromBottom 0.6s ease-out forwards;
+        }
+        .container > .section:nth-child(2) { animation-delay: 0.1s; } /* Adjust delays as needed */
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>MARVEL GAME NIGHTS!</h1> 
+
+        <div class="teams-doc-link-wrapper">
+            <a href="https://docs.google.com/spreadsheets/d/1B-Ogkj1nWrhqDxgpBvGmtZEcLpOPfbdFbDntJlUqX2o/edit?gid=730262166#gid=730262166" target="_blank" class="teams-doc-link">
+                <div class="teams-doc-block">
+                    &gt; VIEW TEAM ROSTERS HERE &lt;
+                </div>
+            </a>
+        </div>
+
+        <div class="section overview-section">
+            <h2>Tournament Lowdown!</h2> 
+            <p>Hey everyone! Welcome to our awesome company Marvel game tournament! We've got <strong>5 super teams</strong> ready to battle it out!</p>
+            <p><strong>Here’s the Game Plan:</strong></p>
+            <ul>
+                <li><strong>Part 1: The Big Group Stage (5 Saturdays)</strong>
+                    <ul>
+                        <li>All 5 teams will play against each other <strong>one time</strong> (a single round-robin).</li>
+                        <li>Every Saturday, starting <strong><span id="startDateDisplay">June 21, 2025</span></strong>, we'll have 2 matches. One team gets a break (a "bye"). This goes on for 5 weeks!</li>
+                        <li>Matches are "Best of 3" rounds – first team to win 2 rounds wins the match!</li>
+                        <li><strong>Maps & Game Modes for these games will be picked randomly for each match!</strong></li>
+                    </ul>
+                </li>
+                <hr class="custom-divider">
+                <li><strong>Part 2: The Finals Showdown! (Saturdays 6 & 7)</strong>
+                    <ul>
+                        <li>The <strong>Top 4 teams</strong> from the group stage move on.</li>
+                        <li><strong>Saturday 6 (<span id="playoffDate1"></span>):</strong> Semi-Finals! (Best team vs. 4th best, 2nd best vs. 3rd best).</li>
+                        <li><strong>Saturday 7 (<span id="playoffDate2"></span>):</strong> Fight for 3rd Place & The Grand Championship Final!</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section scoring-section"> 
+            <h2>How Points Work</h2>
+            <p>For the group stage, here’s how teams get points for each "Best of 3" match:</p>
+            <ul>
+                <li><strong>WIN the Match (score 2-0 or 2-1 in rounds):</strong> Get <strong>3 Points!</strong></li>
+                <li><strong>LOSE the Match (but win 1 round, score 1-2):</strong> Still get <strong>1 Point!</strong> (Good effort!)</li>
+                <li><strong>LOSE the Match (and win 0 rounds, score 0-2):</strong> Get <strong>0 Points.</strong> (Better luck next time!)</li>
+            </ul>
+            <p class="note">Remember, a "Best of 3" match ends as soon as one team wins 2 rounds. So, there are no ties in a match – someone always wins!</p>
+        </div>
+
+        <div class="section rules-section">
+            <h2>Hero Bans: The Pre-Game Strategy!</h2>
+            <p>Before each game starts, teams will do a "Ban Phase". This is where you make smart choices to outwit the other team!</p>
+            
+            <h4>The Ban Phase (4 Heroes Banned Total):</h4>
+            <p>Each team gets to ban <strong>TWO heroes</strong>. Here's how it works:</p>
+            <ol>
+                <li><strong>First Ban Round:</strong> Both teams choose their <strong>first</strong> hero to ban <strong>at the same time</strong>. These two heroes are now out for this game.</li>
+                <li><strong>Second Ban Round:</strong> Then, both teams choose their <strong>second</strong> hero to ban, again, <strong>at the same time</strong>. These next two heroes are also out.</li>
+            </ol>
+            <p>After these two rounds, a total of <strong>4 heroes are banned</strong> and cannot be picked by anyone for this game. Choose your bans wisely!</p>
+            <p class="note">This banning process usually happens before each game in your "Best of 3" match, allowing you to adapt your strategy!</p>
+        </div>
+
+
+        <div class="section round-robin-section">
+            <h2>Group Stage: Current Scores!</h2>
+            
+            <div class="score-controls">
+                 <button id="scoreLockButton" class="score-lock-button">Unlock Score Inputs</button>
+            </div>
+
+            <table id="leagueTable">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Team</th>
+                        <th>Played</th> 
+                        <th>Won</th>
+                        <th>Lost</th>
+                        <th>Rounds Won</th>
+                        <th>Rounds Lost</th>
+                        <th>Points</th> 
+                    </tr>
+                </thead>
+                <tbody>
+                    </tbody>
+            </table>
+            <div class="score-controls"> 
+                <button class="share-table-button" onclick="generateShareableTable()">Generate Shareable Table Text</button>
+            </div>
+            <div id="shareableTableContainer" style="display:none;">
+                <h3>Copy Table Text Below:</h3>
+                <textarea id="shareableTableText" readonly rows="10"></textarea>
+            </div>
+
+
+            <h3>Match Schedule & Score Input</h3>
+            <p class="note">Enter how many rounds each team won (0, 1, or 2). A match is over when one team wins 2 rounds. <strong>Remember to click "Unlock Score Inputs" above to enter scores!</strong></p>
+            <div id="matchSchedule">
+                </div>
+            <div class="score-controls">
+                <button class="update-button" onclick="calculateAllScores()">Update Scores & Table</button>
+            </div>
+        </div>
+
+        <div class="section playoffs-section">
+            <h2>Finals Showdown Bracket!</h2>
+            <p>The Top 4 teams from the Group Stage go here! Scores decide who plays who.</p>
+            <div class="playoff-bracket">
+                <div class="playoff-column" id="semi-finals">
+                    <h3>Semi-Finals <span id="playoffDate1Header"></span></h3>
+                    <div class="playoff-match" id="sf1">
+                        <span class="team-placeholder">Team Seed 1</span> vs <span class="team-placeholder">Team Seed 4</span>
+                        <span class="seed-info">(Match A)</span>
+                    </div>
+                    <div class="playoff-match" id="sf2">
+                        <span class="team-placeholder">Team Seed 2</span> vs <span class="team-placeholder">Team Seed 3</span>
+                        <span class="seed-info">(Match B)</span>
+                    </div>
+                </div>
+                <div class="playoff-column finals-column" id="finals"> 
+                    <h3>Grand Final! <span id="playoffDate2Header"></span></h3>
+                    <div class="playoff-match" id="final">
+                         <span class="team-placeholder">Winner of Match A</span> vs <span class="team-placeholder">Winner of Match B</span>
+                         <span class="seed-info">(For the Championship!)</span>
+                    </div>
+                    <h3>Fight for 3rd Place! <span id="playoffDate2HeaderThird"></span></h3>
+                    <div class="playoff-match" id="third-place">
+                        <span class="team-placeholder">Loser of Match A</span> vs <span class="team-placeholder">Loser of Match B</span>
+                        <span class="seed-info">(For Bronze!)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="grand-final-perks">
+                <p><strong>Grand Final Advantage:</strong> The team that finishes <strong>#1 in the Group Stage</strong> gets a big bonus for the Grand Final match!</p>
+                <p>They get to:
+                    <br>1. <strong>CHOOSE THE MAP</strong> for the Grand Final!
+                    <br>2. Decide if their team will <strong>ATTACK or DEFEND first</strong>!
+                </p>
+            </div>
+            <p class="note">We'll update this bracket as the semi-finals happen!</p>
+        </div>
+    </div>
+
+    <script>
+        const tournamentStartDate = new Date(2025, 5, 21); // June 21, 2025 (Month is 0-indexed)
+
+        function formatDate(date) {
+            const options = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' };
+            return date.toLocaleDateString('en-US', options);
+        }
+
+
+        const mapPool = [
+            { mapName: "Yggsgard: Royal Palace", gameMode: "Convergence" },
+            { mapName: "Yggsgard: Yggdrasill Path", gameMode: "Convergence" },
+            { mapName: "Tokyo 2099: Shin-Shibuya", gameMode: "Domination" },
+            { mapName: "Tokyo 2099: Spider-Islands", gameMode: "Convoy" },
+            { mapName: "Asgard: Rainbow Bridge", gameMode: "Convoy" },
+            { mapName: "Asgard: Queen's Summons Chamber", gameMode: "Domination" },
+            { mapName: "Intergalactic Empire of Wakanda: Birnin T'Challa", gameMode: "Convoy" },
+            { mapName: "Intergalactic Empire of Wakanda: Hall of Djalia", gameMode: "Domination" },
+            { mapName: "Klyntar: Symbiotic Surface", gameMode: "Convergence" },
+            { mapName: "Hydra Charteris Base: Hell's Heaven", gameMode: "Domination" },
+            { mapName: "The Raft: Maximum Security", gameMode: "Convergence" }
+        ];
+
+        const pixelIcons = {
+            red: `<svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg"><path d="M2 2h6v6H2z" fill="currentColor"/></svg>`, 
+            blue: `<svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg"><path d="M4 0h2v10H4zm-4 4h10v2H0z" fill="currentColor"/></svg>`, 
+            green: `<svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h10v2H0zm4 2h2v8H4z" fill="currentColor"/></svg>`, 
+            yellow: `<svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg"><path d="M5 0L10 5L5 10L0 5L5 0z M5 2L8 5L5 8L2 5L5 2z" fill="currentColor"/></svg>`, 
+            purple: `<svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h2v10H0zm8 0h2v10H8zm-5 4h4v2H3z" fill="currentColor"/></svg>` 
+        };
+
+        let teams = [
+            { id: 1, name: "Team Red",    color: 'var(--team-color-red)',    icon: pixelIcons.red,    played: 0, wins: 0, losses: 0, roundsWon: 0, roundsLost: 0, points: 0 },
+            { id: 2, name: "Team Blue",   color: 'var(--team-color-blue)',   icon: pixelIcons.blue,   played: 0, wins: 0, losses: 0, roundsWon: 0, roundsLost: 0, points: 0 },
+            { id: 3, name: "Team Green",  color: 'var(--team-color-green)',  icon: pixelIcons.green,  played: 0, wins: 0, losses: 0, roundsWon: 0, roundsLost: 0, points: 0 },
+            { id: 4, name: "Team Yellow", color: 'var(--team-color-yellow)', icon: pixelIcons.yellow, played: 0, wins: 0, losses: 0, roundsWon: 0, roundsLost: 0, points: 0 },
+            { id: 5, name: "Team Purple", color: 'var(--team-color-purple)', icon: pixelIcons.purple, played: 0, wins: 0, losses: 0, roundsWon: 0, roundsLost: 0, points: 0 }
+        ];
+
+        let scoreInputsLocked = true; 
+
+        let matches = [];
+        // Single Round Robin schedule for 5 teams (10 matches over 5 Saturdays)
+        const pairings_single_rr = [
+            { day: 1, t1: 1, t2: 5, bye: 3 }, { day: 1, t1: 2, t2: 4, bye: 3 }, 
+            { day: 2, t1: 1, t2: 4, bye: 5 }, { day: 2, t1: 2, t2: 3, bye: 5 }, 
+            { day: 3, t1: 1, t2: 3, bye: 2 }, { day: 3, t1: 5, t2: 4, bye: 2 }, 
+            { day: 4, t1: 1, t2: 2, bye: 4 }, { day: 4, t1: 5, t2: 3, bye: 4 }, 
+            { day: 5, t1: 2, t2: 5, bye: 1 }, { day: 5, t1: 4, t2: 3, bye: 1 }  
+        ];
+        
+        pairings_single_rr.forEach(p => {
+            matches.push({
+                day: p.day, team1Id: p.t1, team2Id: p.t2, 
+                team1Rounds: null, team2Rounds: null, played: false, 
+                byeTeamId: p.bye, mapName: null, gameMode: null
+            });
+        });
+
+
+        function assignRandomMapsAndModes() {
+            matches.forEach(match => {
+                const randomMapData = mapPool[Math.floor(Math.random() * mapPool.length)];
+                match.mapName = randomMapData.mapName;
+                match.gameMode = randomMapData.gameMode;
+            });
+        }
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('startDateDisplay').textContent = formatDate(tournamentStartDate);
+            
+            const playoffSat1Date = new Date(tournamentStartDate.getTime() + 5 * 7 * 24 * 60 * 60 * 1000); 
+            const playoffSat2Date = new Date(tournamentStartDate.getTime() + 6 * 7 * 24 * 60 * 60 * 1000); 
+            document.getElementById('playoffDate1').textContent = formatDate(playoffSat1Date);
+            document.getElementById('playoffDate2').textContent = formatDate(playoffSat2Date);
+            document.getElementById('playoffDate1Header').textContent = `(${formatDate(playoffSat1Date)})`;
+            document.getElementById('playoffDate2Header').textContent = `(${formatDate(playoffSat2Date)})`;
+            document.getElementById('playoffDate2HeaderThird').textContent = `(${formatDate(playoffSat2Date)})`;
+
+            assignRandomMapsAndModes(); 
+            renderMatchSchedule();
+            renderLeagueTable();
+            updatePlayoffDisplay();
+            setupScoreLock();
+            toggleScoreInputsReadOnly(true); 
+        });
+        
+        function setupScoreLock() {
+            const lockButton = document.getElementById('scoreLockButton');
+            lockButton.addEventListener('click', () => {
+                scoreInputsLocked = !scoreInputsLocked;
+                toggleScoreInputsReadOnly(scoreInputsLocked);
+                if (scoreInputsLocked) {
+                    lockButton.textContent = 'Unlock Score Inputs';
+                    lockButton.classList.remove('locked'); 
+                } else {
+                    lockButton.textContent = 'Lock Score Inputs';
+                    lockButton.classList.add('locked'); 
+                }
+            });
+        }
+
+        function toggleScoreInputsReadOnly(isLocked) {
+            const scoreInputs = document.querySelectorAll('.score-input');
+            scoreInputs.forEach(input => {
+                input.readOnly = isLocked;
+            });
+        }
+
+        function getTeam(teamId) {
+            return teams.find(t => t.id === teamId);
+        }
+        function getTeamName(teamId) {
+            const team = getTeam(teamId);
+            return team ? team.name : 'Unknown Team';
+        }
+
+
+        function renderMatchSchedule() {
+            const scheduleDiv = document.getElementById('matchSchedule');
+            scheduleDiv.innerHTML = ''; 
+            let currentDay = 0;
+            let currentEventDate;
+
+            matches.forEach((match, index) => {
+                if (match.day !== currentDay) {
+                    currentDay = match.day;
+                    currentEventDate = new Date(tournamentStartDate.getTime() + (currentDay - 1) * 7 * 24 * 60 * 60 * 1000);
+                    const dayHeader = document.createElement('h4');
+                    dayHeader.textContent = `Saturday ${currentDay} (${formatDate(currentEventDate)}) — Break: ${getTeamName(match.byeTeamId)}`;
+                    scheduleDiv.appendChild(dayHeader);
+                }
+
+                const team1 = getTeam(match.team1Id);
+                const team2 = getTeam(match.team2Id);
+
+                const matchDiv = document.createElement('div');
+                matchDiv.classList.add('match-entry');
+                matchDiv.innerHTML = `
+                    <div class="match-details">
+                        <span class="team-identifier" style="color:${team1.color};">${team1.icon || ''} ${team1.name}</span> 
+                        <span class="vs-text">vs</span>
+                        <span class="team-identifier" style="color:${team2.color};">${team2.icon || ''} ${team2.name}</span>
+                    </div>
+                    <div class="match-map-info">
+                        <strong>Map:</strong> ${match.mapName || 'TBD'} &nbsp;&nbsp;&nbsp; <strong>Mode:</strong> ${match.gameMode || 'TBD'}
+                    </div>
+                    <div class="score-line">
+                        <input type="number" class="score-input editable" id="t1r_m${index}" min="0" max="2" placeholder="0" value="${match.team1Rounds !== null ? match.team1Rounds : ''}">
+                        <span>-</span>
+                        <input type="number" class="score-input editable" id="t2r_m${index}" min="0" max="2" placeholder="0" value="${match.team2Rounds !== null ? match.team2Rounds : ''}">
+                    </div>
+                `;
+                scheduleDiv.appendChild(matchDiv);
+            });
+            toggleScoreInputsReadOnly(scoreInputsLocked); 
+        }
+        
+        function resetTeamStats() {
+            teams.forEach(team => {
+                team.played = 0;
+                team.wins = 0;
+                team.losses = 0;
+                team.roundsWon = 0;
+                team.roundsLost = 0;
+                team.points = 0;
+            });
+        }
+
+        function calculateAllScores() {
+            if (scoreInputsLocked) {
+                alert("Heads up! Click 'Unlock Score Inputs' before you can change any scores.");
+                return;
+            }
+            resetTeamStats();
+
+            matches.forEach((match, index) => {
+                const t1rInput = document.getElementById(`t1r_m${index}`);
+                const t2rInput = document.getElementById(`t2r_m${index}`);
+                
+                let t1Val = t1rInput.value.trim();
+                let t2Val = t2rInput.value.trim();
+
+                const t1Rounds = (t1Val === "" || isNaN(parseInt(t1Val))) ? null : parseInt(t1Val);
+                const t2Rounds = (t2Val === "" || isNaN(parseInt(t2Val))) ? null : parseInt(t2Val);
+                
+                match.team1Rounds = t1Rounds;
+                match.team2Rounds = t2Rounds;
+                
+                if ((t1Rounds === 2 && (t2Rounds === 0 || t2Rounds === 1)) ||
+                    (t2Rounds === 2 && (t1Rounds === 0 || t1Rounds === 1))) {
+                    match.played = true;
+                } else {
+                    match.played = false; 
+                    if (t1Rounds !== null || t2Rounds !== null) { /* Allow partial input view */ }
+                    return; 
+                }
+                
+                const team1 = getTeam(match.team1Id);
+                const team2 = getTeam(match.team2Id);
+
+                if (!team1 || !team2 || !match.played) return;
+
+                let r1 = match.team1Rounds;
+                let r2 = match.team2Rounds;
+
+                team1.played++;
+                team2.played++;
+                team1.roundsWon += r1;
+                team1.roundsLost += r2;
+                team2.roundsWon += r2;
+                team2.roundsLost += r1;
+
+                if (r1 === 2) { 
+                    team1.wins++; team2.losses++; team1.points += 3;
+                    if (r2 === 1) { team2.points += 1; }
+                } else if (r2 === 2) { 
+                    team2.wins++; team1.losses++; team2.points += 3;
+                    if (r1 === 1) { team1.points += 1; }
+                }
+            });
+            renderLeagueTable();
+            updatePlayoffDisplay();
+        }
+
+        function renderLeagueTable() {
+            const tableBody = document.getElementById('leagueTable').getElementsByTagName('tbody')[0];
+            tableBody.innerHTML = ''; 
+
+            const sortedTeams = [...teams].sort((a, b) => {
+                if (b.points !== a.points) return b.points - a.points;
+                const roundsDiffA = a.roundsWon - a.roundsLost;
+                const roundsDiffB = b.roundsWon - b.roundsLost;
+                if (roundsDiffB !== roundsDiffA) return roundsDiffB - roundsDiffA;
+                if (b.roundsWon !== a.roundsWon) return b.roundsWon - a.roundsWon;
+                return getTeamName(a.id).localeCompare(getTeamName(b.id));
+            });
+
+            sortedTeams.forEach((teamData, index) => {
+                const row = tableBody.insertRow();
+                row.insertCell().textContent = index + 1; 
+                
+                const nameCell = row.insertCell();
+                nameCell.classList.add('team-name-cell');
+                nameCell.innerHTML = ` 
+                    <span style="color: ${teamData.color}; display: inline-flex; align-items: center;">
+                        ${teamData.icon || ''} 
+                        ${teamData.name}
+                    </span>
+                    <span class="team-member-link-placeholder" title="Team member info (organizer to add link)">🔗</span>
+                `;
+                
+                row.insertCell().textContent = teamData.played;
+                row.insertCell().textContent = teamData.wins;
+                row.insertCell().textContent = teamData.losses;
+                row.insertCell().textContent = teamData.roundsWon;
+                row.insertCell().textContent = teamData.roundsLost;
+                row.insertCell().textContent = teamData.points;
+            });
+        }
+        
+        function updatePlayoffDisplay() {
+            const sortedTeams = [...teams].sort((a, b) => { 
+                if (b.points !== a.points) return b.points - a.points;
+                const roundsDiffA = a.roundsWon - a.roundsLost;
+                const roundsDiffB = b.roundsWon - b.roundsLost;
+                if (roundsDiffB !== roundsDiffA) return roundsDiffB - roundsDiffA;
+                if (b.roundsWon !== a.roundsWon) return b.roundsWon - a.roundsWon;
+                return getTeamName(a.id).localeCompare(getTeamName(b.id));
+            });
+
+            const sf1Div = document.getElementById('sf1');
+            const sf2Div = document.getElementById('sf2');
+            const finalDiv = document.getElementById('final');
+            const thirdPlaceDiv = document.getElementById('third-place');
+            
+            const setMatchText = (div, teamAName, teamBName, defaultTextA = "Team TBD", defaultTextB = "Team TBD", seedInfo = "") => {
+                div.innerHTML = `<span class="team-placeholder">${teamAName || defaultTextA}</span> vs <span class="team-placeholder">${teamBName || defaultTextB}</span> <span class="seed-info">${seedInfo}</span>`;
+            };
+
+            if (sortedTeams.length >= 4 && teams.some(t => t.played > 0)) { 
+                setMatchText(sf1Div, getTeamName(sortedTeams[0].id), getTeamName(sortedTeams[3].id), "Seed 1", "Seed 4", "(Match A)");
+                setMatchText(sf2Div, getTeamName(sortedTeams[1].id), getTeamName(sortedTeams[2].id), "Seed 2", "Seed 3", "(Match B)");
+                setMatchText(finalDiv, "Winner of Match A", "Winner of Match B", "TBD", "TBD", "(For the Championship!)");
+                setMatchText(thirdPlaceDiv, "Loser of Match A", "Loser of Match B", "TBD", "TBD", "(For Bronze!)");
+            } else { 
+                setMatchText(sf1Div, "Team Seed 1", "Team Seed 4", "Team TBD", "Team TBD", "(Match A)");
+                setMatchText(sf2Div, "Team Seed 2", "Team Seed 3", "Team TBD", "Team TBD", "(Match B)");
+                setMatchText(finalDiv, "Winner of Match A", "Winner of Match B", "TBD", "TBD", "(For the Championship!)");
+                setMatchText(thirdPlaceDiv, "Loser of Match A", "Loser of Match B", "TBD", "TBD", "(For Bronze!)");
+            }
+        }
+
+        function generateShareableTable() {
+            const tableContainer = document.getElementById('shareableTableContainer');
+            const textArea = document.getElementById('shareableTableText');
+            let tableText = "Rank | Team                 | Pld | W | L | RW | RL | Pts\n";
+            tableText +=    "---------------------------------------------------------------\n";
+
+            const sortedTeams = [...teams].sort((a, b) => {
+                if (b.points !== a.points) return b.points - a.points;
+                const roundsDiffA = a.roundsWon - a.roundsLost;
+                const roundsDiffB = b.roundsWon - b.roundsLost;
+                if (roundsDiffB !== roundsDiffA) return roundsDiffB - roundsDiffA;
+                if (b.roundsWon !== a.roundsWon) return b.roundsWon - a.roundsWon;
+                return getTeamName(a.id).localeCompare(getTeamName(b.id));
+            });
+
+            sortedTeams.forEach((team, index) => {
+                const rank = (index + 1).toString().padEnd(4);
+                const name = team.name.padEnd(20);
+                const pld = team.played.toString().padEnd(3);
+                const w = team.wins.toString().padEnd(1);
+                const l = team.losses.toString().padEnd(1);
+                const rw = team.roundsWon.toString().padEnd(2);
+                const rl = team.roundsLost.toString().padEnd(2);
+                const pts = team.points.toString().padEnd(3);
+                tableText += `${rank} | ${name} | ${pld} | ${w} | ${l} | ${rw} | ${rl} | ${pts}\n`;
+            });
+            
+            textArea.value = tableText;
+            tableContainer.style.display = 'block';
+            textArea.select(); 
+        }
+
+    </script>
+</body>
+</html>
