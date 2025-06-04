@@ -31,11 +31,11 @@
             --color-accent-danger: #ff4b4b;   
 
             /* Team Colors */
-            --team-color-red: #ff4757;
-            --team-color-blue: #3742fa;
-            --team-color-green: #2ed573;
-            --team-color-yellow: #ffa502;
-            --team-color-purple: #706fd3;
+            --team-color-red: #ff4757;     /* TEAM Goene */
+            --team-color-blue: #3742fa;    /* TEAM Ryzhov */
+            --team-color-green: #2ed573;   /* TEAM Goncharov */
+            --team-color-yellow: #ffa502;  /* TEAM Ishkhanov */
+            --team-color-purple: #9b59b6;  /* TEAM Snap */
 
             --border-radius-xl: 15px;
             --border-radius-lg: 10px;
@@ -47,10 +47,10 @@
 
         body {
             font-family: var(--font-body);
-            font-size: 16px; /* Base for mobile, will adjust up for desktop */
+            font-size: 16px; 
             line-height: 1.7;
             margin: 0;
-            padding: 15px; /* Reduced padding for mobile */
+            padding: 15px; 
             background-color: var(--color-bg-deep);
             background-image: url('https://www.marvelrivals.com/images/layout/main_bg.jpg'); 
             background-size: cover;
@@ -62,9 +62,9 @@
 
         .container {
             max-width: 1200px;
-            margin: 15px auto; /* Reduced margin for mobile */
+            margin: 15px auto; 
             background: rgba(15, 20, 35, 0.92); 
-            padding: 20px; /* Reduced padding for mobile */
+            padding: 20px; 
             border-radius: var(--border-radius-xl);
             border: 1px solid var(--color-accent-primary);
             box-shadow: 0 0 40px rgba(0, 209, 255, 0.35), 0 0 15px rgba(0,0,0,0.6);
@@ -78,11 +78,11 @@
             letter-spacing: 1.2px;
         }
 
-        h1 { /* Page Title */
+        h1 { 
             text-align: center;
             font-family: var(--font-display);
-            font-size: 2.5em; /* Adjusted for potential line break */
-            line-height: 1.2; /* For multi-line h1 */
+            font-size: 2.5em; 
+            line-height: 1.2; 
             font-weight: 900;
             color: var(--color-accent-highlight);
             text-shadow: 0 0 6px var(--color-accent-highlight), 0 0 12px var(--color-accent-secondary), 0 0 20px var(--color-accent-primary), 0 2px 2px rgba(0,0,0,0.5);
@@ -101,15 +101,15 @@
             transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
         }
         .teams-doc-link:hover {
-            transform: scale(1.03); /* Slightly less aggressive hover */
+            transform: scale(1.03); 
             box-shadow: 0 0 20px var(--color-accent-highlight);
         }
         .teams-doc-block {
             background: linear-gradient(45deg, var(--color-accent-highlight), gold);
             color: var(--color-bg-deep);
-            padding: 12px 25px; /* Adjusted padding */
+            padding: 12px 25px; 
             font-family: var(--font-display);
-            font-size: 1.5em; /* Adjusted size */
+            font-size: 1.5em; 
             font-weight: 700;
             text-align: center;
             letter-spacing: 1.5px;
@@ -119,7 +119,7 @@
         }
         
         .jump-in-section {
-            background-color: rgba(var(--color-accent-success), 0.15);
+            background-color: rgba(54, 255, 154, 0.15);
             border: 1px solid var(--color-accent-success);
             padding: 15px 20px;
             margin: 25px 0;
@@ -139,6 +139,28 @@
         .jump-in-section a:hover {
             text-decoration: none;
             color: var(--color-accent-success);
+        }
+
+        .finals-format-info { 
+            background-color: rgba(0, 209, 255, 0.1); 
+            border: 1px solid var(--color-accent-primary);
+            padding: 15px 20px;
+            margin: 25px 0;
+            border-radius: var(--border-radius-lg);
+        }
+        .finals-format-info h3 {
+            color: var(--color-accent-primary);
+            margin-top: 0;
+            text-align: center;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+        .finals-format-info ul li, .finals-format-info ol li {
+            margin-bottom: 8px;
+        }
+        .finals-format-info ul ul, .finals-format-info ol ol {
+            margin-top: 5px;
+            margin-bottom: 10px;
         }
 
 
@@ -188,22 +210,21 @@
             margin: 30px 0;
         }
 
-        .table-wrapper { /* New wrapper for table responsiveness */
+        .table-wrapper { 
             overflow-x: auto;
             margin-bottom: 35px;
-            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+            -webkit-overflow-scrolling: touch; 
         }
         .table-wrapper table {
-             margin-bottom: 0; /* Remove margin from table if wrapper handles it */
+             margin-bottom: 0; 
         }
 
 
         table { 
             width: 100%;
-            min-width: 600px; /* Prevent table from collapsing too much */
+            min-width: 600px; 
             border-collapse: separate;
             border-spacing: 0;
-            /* margin-bottom: 35px; Remove if using wrapper */
             box-shadow: 0 5px 15px rgba(0,0,0,0.4);
             border-radius: var(--border-radius-lg);
             overflow: hidden;
@@ -215,7 +236,7 @@
             text-align: left;
             font-size: 1em; 
             font-weight: 500;
-            white-space: nowrap; /* Keep table content on one line */
+            white-space: nowrap; 
         }
 
         th { 
@@ -225,7 +246,7 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
-            position: sticky; /* Make header sticky when scrolling horizontally */
+            position: sticky; 
             top: 0;
             z-index: 1;
         }
@@ -244,7 +265,7 @@
             font-weight: 700 !important;
         }
         .team-name-cell svg { 
-            width: 18px;   /* Adjusted for table cell */
+            width: 18px;   
             height: 18px;  
             margin-right: 8px;
             flex-shrink: 0;
@@ -271,10 +292,10 @@
         }
         .match-details { 
             display: flex;
-            flex-wrap: wrap; /* Allow wrapping for team names */
+            flex-wrap: wrap; 
             align-items: center;
-            justify-content: center; /* Center for wrapped state */
-            gap: 10px; /* Gap between items */
+            justify-content: center; 
+            gap: 10px; 
             margin-bottom: 10px; 
         }
         .match-details .team-identifier { 
@@ -282,7 +303,7 @@
              align-items: center;
              font-weight: 700; 
              color: var(--color-text-light);
-             font-size: 1.1em; /* Adjusted for mobile */
+             font-size: 1.1em; 
         }
         .match-details .team-identifier svg {
             width: 16px; height: 16px; margin-right: 6px; 
@@ -290,7 +311,7 @@
         .match-details .vs-text {
             font-weight: 700;
             color: var(--color-accent-highlight);
-            font-size: 1em; /* Adjusted for mobile */
+            font-size: 1em; 
         }
         .match-map-info {
             font-size: 1em; 
@@ -308,7 +329,7 @@
             color: var(--color-accent-primary);
          }
         .match-score-display { 
-            font-size: 1.2em; /* Adjusted for mobile */
+            font-size: 1.2em; 
             font-weight: 700;
             color: var(--color-accent-highlight);
             text-align: center;
@@ -331,7 +352,7 @@
             border-radius: var(--border-radius-md);
             cursor: pointer;
             font-family: var(--font-display);
-            font-size: 1.1em; /* Adjusted for mobile */
+            font-size: 1.1em; 
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1.2px;
@@ -341,7 +362,7 @@
             background: linear-gradient(60deg, var(--color-accent-primary), var(--color-accent-tertiary));
         }
         .share-table-button:hover {
-            transform: scale(1.03); /* Adjusted hover */
+            transform: scale(1.03); 
             opacity: 0.9;
         }
         .share-table-button:focus {
@@ -349,22 +370,22 @@
         }
 
         .section {
-            margin-bottom: 40px; /* Adjusted margin */
-            padding: 20px; /* Adjusted padding */
+            margin-bottom: 40px; 
+            padding: 20px; 
             background: var(--color-bg-section);
             border: 1px solid var(--color-bg-element);
             border-radius: var(--border-radius-lg);
             box-shadow: 0 6px 20px rgba(0,0,0,0.25);
         }
         .section ul, .section ol {
-            padding-left: 25px; /* Adjusted padding */
+            padding-left: 25px; 
         }
 
         .playoff-bracket {
             display: flex;
-            flex-direction: column; /* Stack columns on mobile by default */
-            align-items: center; /* Center stacked columns */
-            gap: 20px; /* Gap between stacked semi/final columns */
+            flex-direction: column; 
+            align-items: center; 
+            gap: 20px; 
             margin-top: 30px;
             padding: 20px 0;
         }
@@ -374,7 +395,7 @@
             flex-direction: column;
             align-items: center;
             gap: 30px; 
-            width: 100%; /* Take full width when stacked */
+            width: 100%; 
         }
 
         .playoff-match {
@@ -385,7 +406,7 @@
             margin: 10px 0;
             border-radius: var(--border-radius-md);
             width: 90%; 
-            max-width: 320px; /* Max width for readability */
+            max-width: 320px; 
             text-align: center;
             font-family: var(--font-heading);
             font-weight: 700; 
@@ -447,7 +468,7 @@
             border-radius: var(--border-radius-lg);
             box-shadow: 0 0 20px rgba(0, 209, 255, 0.25);
             max-width: 95%; 
-            overflow-x: auto; /* Allow horizontal scroll for the card itself if content is too wide */
+            overflow-x: auto; 
         }
         #shareableTableCardContainer h3 {
             text-align: center;
@@ -455,9 +476,9 @@
             margin-bottom: 15px;
             font-size: 1.5em;
         }
-        .shareable-html-table { /* Table inside the card */
+        .shareable-html-table { 
             width: 100%;
-            min-width: 550px; /* Prevent collapsing too much */
+            min-width: 550px; 
             border-collapse: collapse;
             font-size: 0.9em;
             color: var(--color-text-light);
@@ -473,7 +494,7 @@
             color: var(--color-text-title-main);
             font-family: var(--font-heading);
             text-transform: uppercase;
-            position: sticky; top: 0; z-index: 1; /* Sticky header for card table */
+            position: sticky; top: 0; z-index: 1; 
         }
         .shareable-html-table td {
             background-color: var(--color-bg-main);
@@ -489,16 +510,17 @@
         }
 
         @keyframes fadeInFromBottom {
-            from { opacity: 0; transform: translateY(20px); } /* Reduced Y translation */
+            from { opacity: 0; transform: translateY(20px); } 
             to { opacity: 1; transform: translateY(0); }
         }
-        .container > .section, .container > h1, .teams-doc-link-wrapper, .jump-in-section { 
-            animation: fadeInFromBottom 0.5s ease-out forwards; /* Faster animation */
+        .container > .section, .container > h1, .teams-doc-link-wrapper, .jump-in-section, .finals-format-info { 
+            animation: fadeInFromBottom 0.5s ease-out forwards; 
         }
         .teams-doc-link-wrapper { animation-delay: 0.05s; }
         .jump-in-section { animation-delay: 0.1s; }
-        .container > .section:nth-of-type(1) { animation-delay: 0.15s; } /* Target overview specifically */
-        .container > .section:nth-of-type(2) { animation-delay: 0.2s; }
+        .finals-format-info { animation-delay: 0.15s; }
+        .container > .section:nth-of-type(1) { animation-delay: 0.2s; } 
+        .container > .section:nth-of-type(2) { animation-delay: 0.25s; }
 
 
         /* Desktop and larger screens */
@@ -514,6 +536,7 @@
             h1 { font-size: 3.2em; }
             .teams-doc-block { font-size: 1.8em; padding: 15px 30px; }
             .jump-in-section p { font-size: 1.1em; }
+            .finals-format-info h3 { font-size: 1.8em; }
             h2 { font-size: 2.4em; }
             h3 { font-size: 1.8em; }
             h4 { font-size: 1.5em; }
@@ -529,8 +552,8 @@
             .share-table-button { font-size: 1.3em; padding: 14px 28px; }
             .section { padding: 25px 30px; margin-bottom: 45px; }
             .section ul, .section ol { padding-left: 30px; }
-            .playoff-bracket { flex-direction: row; align-items: flex-start; gap: 0;} /* Revert to row for desktop */
-            .playoff-column { width: auto; /* Allow columns to size based on content */ }
+            .playoff-bracket { flex-direction: row; align-items: flex-start; gap: 0;} 
+            .playoff-column { width: auto; }
             .playoff-match { font-size: 1.2em; padding: 18px 22px; width: 280px; }
             .note { font-size: 1.05em; padding: 15px; margin: 20px 0; }
             .grand-final-perks p { font-size: 1.1em; }
@@ -545,7 +568,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>MARVEL RIVALS<br>SATURDAY NIGHTS</h1> 
+        <h1>MARVEL RIVALS<br>SATURDAY NIGHTS</h1>
 
         <div class="teams-doc-link-wrapper">
             <a href="https://docs.google.com/spreadsheets/d/1B-Ogkj1nWrhqDxgpBvGmtZEcLpOPfbdFbDntJlUqX2o/edit?gid=730262166#gid=730262166" target="_blank" class="teams-doc-link">
@@ -555,7 +578,7 @@
             </a>
         </div>
 
-        <div class="jump-in-section">
+        <div class="jump-in-section"> 
             <p>Want to jump into the action or be a backup hero? 🦸<br>If you haven't registered yet, you're free to fill out <a href="https://forms.gle/yWpEJniRvBsaqbsC6" target="_blank"><strong>THE FORM</strong></a>!</p>
             <p><small>Teams often need backup players if someone can't make it to a game.</small></p>
         </div>
@@ -568,22 +591,20 @@
                 <li><strong>Part 1: The Big Group Stage (5 Saturdays)</strong>
                     <ul>
                         <li>All 5 teams will play against each other <strong>one time</strong> (a single round-robin).</li>
-                        <li>Every Saturday, starting <strong><span id="startDateDisplay">June 21, 2025</span></strong>, we'll have 2 matches. One team gets a break (a "bye"). This goes on for 5 weeks!</li>
+                        <li>Every Saturday, starting <strong><span id="startDateDisplay">June 21, 2025</span></strong>, we'll have 2 matches. </li>
                         <li>Matches are "Best of 3" rounds – first team to win 2 rounds wins the match!</li>
-                        <li><strong>Maps & Game Modes for these games will be picked following special rules!</strong> (Details below: 1 Domination game per day, map variety prioritized).</li>
                     </ul>
                 </li>
                 <hr class="custom-divider">
-                <li><strong>Part 2: The Finals Showdown! (Saturdays 6 & 7)</strong>
+                <li><strong>Part 2: The Finals Showdown!</strong>
                     <ul>
-                        <li>The <strong>Top 4 teams</strong> from the group stage move on.</li>
-                        <li><strong>Saturday 6 (<span id="playoffDate1"></span>):</strong> Semi-Finals! (Best team vs. 4th best, 2nd best vs. 3rd best).</li>
-                        <li><strong>Saturday 7 (<span id="playoffDate2"></span>):</strong> Fight for 3rd Place & The Grand Championship Final!</li>
-                        <li><strong>All final matches are "Best of 3" Maps, not Rounds!</li>
+                        <li>The <strong>Top 4 teams</strong> from the group stage move on immediately to the finals.</li>
+                        <li><strong>Saturday 6 (<span id="playoffDate1"></span>):</strong> Semi-Finals!</li>
+                        <li><strong>Saturday 7 (<span id="playoffDate2"></span>):</strong> The Grand Final & the match for 3rd Place!</li>
                     </ul>
                 </li>
             </ul>
-             <p class="note"><strong>Important Note on Team Mode Distribution:</strong> The system guarantees <strong>one Domination game per Saturday</strong> and varies other modes to enhance map diversity. This means each team should play approximately <strong>2 Domination games</strong> during the group stage. The exact count of Convoy/Convergence games per team will vary, but all teams will get a good mix.</p>
+             <p class="note"><strong>Important Note on Team Mode Distribution:</strong> The tournament features <strong>5 Domination games, 3 Convoy games, and 2 Convergence games</strong>. This ensures each team plays <strong>2 Domination games</strong>. Their other 2 games will be a mix of Convoy and Convergence based on this overall distribution.</p>
         </div>
 
         <div class="section scoring-section"> 
@@ -594,11 +615,11 @@
                 <li><strong>LOSE the Match (but win 1 round, score 1-2):</strong> Team still gets <strong>1 Point!</strong> (Good effort!)</li>
                 <li><strong>LOSE the Match (and win 0 rounds, score 0-2):</strong> Team gets <strong>0 Points.</strong></li>
             </ul>
-            <p class="note">A "Best of 3" match ends as soon as one team wins 2 rounds. Scores are updated on this page after matches are played.</p>
         </div>
 
         <div class="section rules-section">
-            <h2>Hero Bans: The Pre-Game Strategy!</h2> <p>Before each game starts, teams will do a "Ban Phase". This is where you make smart choices to outwit the other team!</p>
+            <h2>Hero Bans: The Pre-Game Strategy!</h2>
+            <p>Before each game starts, teams will do a "Ban Phase". This is where you make smart choices to outwit the other team!</p>
             
             <h4>The Ban Phase (4 Heroes Banned Total):</h4>
             <p>Each team gets to ban <strong>TWO heroes</strong>. Here's how it works:</p>
@@ -607,14 +628,13 @@
                 <li><strong>Second Ban Round:</strong> Then, both teams choose their <strong>second</strong> hero to ban, again, <strong>at the same time</strong>. These next two heroes are also out.</li>
             </ol>
             <p>After these two rounds, a total of <strong>4 heroes are banned</strong> and cannot be picked by anyone for this game. Choose your bans wisely!</p>
-            <p class="note">This banning process usually happens before each game in your "Best of 3" match, allowing you to adapt your strategy!</p>
         </div>
 
 
         <div class="section round-robin-section">
             <h2>Group Stage: Current Scores!</h2>
             
-            <div class="table-wrapper">
+            <div class="table-wrapper"> 
                 <table id="leagueTable">
                     <thead>
                         <tr>
@@ -666,12 +686,12 @@
                     </div>
                 </div>
                 <div class="playoff-column finals-column" id="finals"> 
-                    <h3>Grand Final! <span id="playoffDate2Header"></span></h3>
+                    <h3>Grand Final! <span id="playoffDate2Header"></span></h3> 
                     <div class="playoff-match" id="final">
                          <span class="team-placeholder">Winner of Match A</span> vs <span class="team-placeholder">Winner of Match B</span>
                          <span class="seed-info">(For the Championship!)</span>
                     </div>
-                    <h3>Fight for 3rd Place! <span id="playoffDate2HeaderThird"></span></h3>
+                    <h3>Fight for 3rd Place! <span id="playoffDate2HeaderThird"></span></h3> 
                     <div class="playoff-match" id="third-place">
                         <span class="team-placeholder">Loser of Match A</span> vs <span class="team-placeholder">Loser of Match B</span>
                         <span class="seed-info">(For Bronze!)</span>
@@ -681,8 +701,8 @@
             <div class="grand-final-perks">
                 <p><strong>Grand Final Advantage:</strong> The team that finishes <strong>#1 in the Group Stage</strong> gets a big bonus for the Grand Final match!</p>
                 <p>They get to:
-                    <br><strong>CHOOSE ALL 3 MAPS</strong> for the Grand Final!
-                    <br><strong>Choose their opponent</strong> for the Grand Final!
+                    <br>1. <strong>CHOOSE THE MAPS</strong> for the Grand Final (1 Domination, 1 Convoy, 1 Convergence)!
+                    <br>2. Decide if their team will <strong>ATTACK or DEFEND first</strong> on the first map!
                 </p>
             </div>
             <p class="note">We'll update this bracket as the semi-finals happen!</p>
@@ -690,7 +710,7 @@
     </div>
 
     <script>
-        const tournamentStartDate = new Date(2025, 5, 21); // June 21, 2025 (Month is 0-indexed)
+        const tournamentStartDate = new Date(2025, 5, 21); // June 21, 2025
 
         function formatDate(date) {
             const options = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' };
@@ -717,8 +737,6 @@
                 "Yggsgard: Royal Palace"
             ]
         };
-        const nonDominationModeNames = ['Convoy', 'Convergence'];
-
 
         const pixelIcons = {
             red: `<svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg"><path d="M2 2h6v6H2z" fill="currentColor"/></svg>`, 
@@ -729,113 +747,146 @@
         };
 
         let teams = [
-            { id: 1, name: "Team Goene (Red)",    color: 'var(--team-color-red)',    icon: pixelIcons.red,    played: 0, wins: 0, losses: 0, roundsWon: 0, roundsLost: 0, points: 0, dominationsPlayed: 0 },
-            { id: 2, name: "Team Ryzhov (Blue)",   color: 'var(--team-color-blue)',   icon: pixelIcons.blue,   played: 0, wins: 0, losses: 0, roundsWon: 0, roundsLost: 0, points: 0, dominationsPlayed: 0 },
-            { id: 3, name: "Team Goncharov (Green)",  color: 'var(--team-color-green)',  icon: pixelIcons.green,  played: 0, wins: 0, losses: 0, roundsWon: 0, roundsLost: 0, points: 0, dominationsPlayed: 0 },
-            { id: 4, name: "Team Ishkhanov (Yellow)", color: 'var(--team-color-yellow)', icon: pixelIcons.yellow, played: 0, wins: 0, losses: 0, roundsWon: 0, roundsLost: 0, points: 0, dominationsPlayed: 0 },
-            { id: 5, name: "Team Snap (Purple)", color: 'var(--team-color-purple)', icon: pixelIcons.purple, played: 0, wins: 0, losses: 0, roundsWon: 0, roundsLost: 0, points: 0, dominationsPlayed: 0 }
+            { id: 1, name: "TEAM Goene",     color: 'var(--team-color-red)',    icon: pixelIcons.red,    played: 0, wins: 0, losses: 0, roundsWon: 0, roundsLost: 0, points: 0, modesPlayed: { Domination: 0, Convoy: 0, Convergence: 0 } },
+            { id: 2, name: "TEAM Ryzhov",    color: 'var(--team-color-blue)',   icon: pixelIcons.blue,   played: 0, wins: 0, losses: 0, roundsWon: 0, roundsLost: 0, points: 0, modesPlayed: { Domination: 0, Convoy: 0, Convergence: 0 } },
+            { id: 3, name: "TEAM Goncharov", color: 'var(--team-color-green)',  icon: pixelIcons.green,  played: 0, wins: 0, losses: 0, roundsWon: 0, roundsLost: 0, points: 0, modesPlayed: { Domination: 0, Convoy: 0, Convergence: 0 } },
+            { id: 4, name: "TEAM Ishkhanov", color: 'var(--team-color-yellow)', icon: pixelIcons.yellow, played: 0, wins: 0, losses: 0, roundsWon: 0, roundsLost: 0, points: 0, modesPlayed: { Domination: 0, Convoy: 0, Convergence: 0 } },
+            { id: 5, name: "TEAM Snap",      color: 'var(--team-color-purple)', icon: pixelIcons.purple, played: 0, wins: 0, losses: 0, roundsWon: 0, roundsLost: 0, points: 0, modesPlayed: { Domination: 0, Convoy: 0, Convergence: 0 } }
         ];
 
-        // Scores are manually entered here by the organizer in the team1Score and team2Score properties
-       let matches = [
-            // SATURDAY 1 (Originally Saturday 4's matches) - Bye Team 4
+        let matches = [ 
             { day: 1, team1Id: 1, team2Id: 2, byeTeamId: 4, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
             { day: 1, team1Id: 5, team2Id: 3, byeTeamId: 4, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
-            
-            // SATURDAY 2 - Bye Team 5
             { day: 2, team1Id: 1, team2Id: 4, byeTeamId: 5, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
             { day: 2, team1Id: 2, team2Id: 3, byeTeamId: 5, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
-            
-            // SATURDAY 3 - Bye Team 2
             { day: 3, team1Id: 1, team2Id: 3, byeTeamId: 2, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
             { day: 3, team1Id: 5, team2Id: 4, byeTeamId: 2, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
-            
-            // SATURDAY 4 (Originally Saturday 1's matches) - Bye Team 3
             { day: 4, team1Id: 1, team2Id: 5, byeTeamId: 3, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
             { day: 4, team1Id: 2, team2Id: 4, byeTeamId: 3, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
-            
-            // SATURDAY 5 - Bye Team 1
             { day: 5, team1Id: 2, team2Id: 5, byeTeamId: 1, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
-            { day: 5, team1Id: 4, team2Id: 3, byeTeamId: 1, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }  
+            { day: 5, team1Id: 4, team2Id: 3, byeTeamId: 1, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }  // TEAM Ishkhanov (4) vs TEAM Goncharov (3)
         ];
         
         function getRandomElement(arr) {
             if (!arr || arr.length === 0) return null;
             return arr[Math.floor(Math.random() * arr.length)];
         }
-
-        function assignMapsAndModesToMatches() {
-            teams.forEach(team => team.dominationsPlayed = 0); 
+        
+       function assignMapsAndModesToMatches() {
+            matches.forEach(m => { m.gameMode = null; m.mapName = null; }); 
+            teams.forEach(team => team.modesPlayed = { Domination: 0, Convoy: 0, Convergence: 0 });
             let usedMaps = { Convergence: new Set(), Convoy: new Set(), Domination: new Set() };
-
+            
             function getMapForMode(modeName) {
                 let pool = mapPools[modeName];
-                if (!pool) { console.error("Unknown mode:", modeName); return "Unknown Map"; }
+                if (!pool || pool.length === 0) { console.error("Error: Empty or unknown mode for map pool:", modeName); return "Map Pool Error"; }
                 let availableMaps = pool.filter(map => !usedMaps[modeName].has(map));
                 if (availableMaps.length === 0) { 
                     usedMaps[modeName].clear(); 
                     availableMaps = [...pool];
                 }
                 const chosenMap = getRandomElement(availableMaps);
-                if (chosenMap) usedMaps[modeName].add(chosenMap);
-                return chosenMap || getRandomElement(pool); 
-            }
-
-            for (let day = 1; day <= 5; day++) {
-                const matchesOnThisDay = matches.filter(m => m.day === day);
-                if (matchesOnThisDay.length !== 2) continue; // Should always be 2
-
-                const matchA = matchesOnThisDay[0];
-                const matchB = matchesOnThisDay[1];
-
-                const teamsInA = [getTeam(matchA.team1Id), getTeam(matchA.team2Id)];
-                const teamsInB = [getTeam(matchB.team1Id), getTeam(matchB.team2Id)];
-
-                let assignDomToA = false;
-                const canAHostDom = teamsInA.every(t => t.dominationsPlayed < 2);
-                const canBHostDom = teamsInB.every(t => t.dominationsPlayed < 2);
-
-                if (canAHostDom && !canBHostDom) {
-                    assignDomToA = true;
-                } else if (!canAHostDom && canBHostDom) {
-                    assignDomToA = false;
-                } else if (canAHostDom && canBHostDom) {
-                    const sumDomA = teamsInA.reduce((sum, t) => sum + t.dominationsPlayed, 0);
-                    const sumDomB = teamsInB.reduce((sum, t) => sum + t.dominationsPlayed, 0);
-                    assignDomToA = sumDomA <= sumDomB; // Prefer match where teams have played fewer Dom games
-                } else { // Neither can host without a team exceeding 2 Dom games OR both would still be <= 2
-                      // This implies one team (or more) in EACH match has already played 2 Dom games.
-                      // This specific logic branch needs to ensure one Dom game is still assigned per day.
-                      // If both canAHostDom and canBHostDom are false, one of them WILL push a team to 3 dom games.
-                      // In this rare edge case (shouldn't happen if logic is perfect for 5 teams/5 dom games),
-                      // we pick one randomly, or the one that 'hurts' less (e.g. only one team goes to 3 vs two teams).
-                      // For now, simple random choice if forced into this.
-                    assignDomToA = Math.random() < 0.5;
-                     // console.warn(`Day ${day}: Forced choice for Domination slot. A: ${canAHostDom}, B: ${canBHostDom}. Counts: T1:${teams[0].dominationsPlayed}, T2:${teams[1].dominationsPlayed}, T3:${teams[2].dominationsPlayed}, T4:${teams[3].dominationsPlayed}, T5:${teams[4].dominationsPlayed}`);
+                if (chosenMap) {
+                    usedMaps[modeName].add(chosenMap);
+                } else { 
+                    return getRandomElement(mapPools[modeName]);
                 }
-                
-                const domMatch = assignDomToA ? matchA : matchB;
-                const otherMatch = assignDomToA ? matchB : matchA;
-
-                domMatch.mapName = getMapForMode("Domination");
-                domMatch.gameMode = "Domination";
-                getTeam(domMatch.team1Id).dominationsPlayed++;
-                getTeam(domMatch.team2Id).dominationsPlayed++;
-                
-                const otherModeName = getRandomElement(nonDominationModeNames);
-                otherMatch.mapName = getMapForMode(otherModeName);
-                otherMatch.gameMode = otherModeName;
+                return chosenMap;
             }
+
+            // 1. Assign the 5 Domination games using the 5-cycle pairings
+            const domCyclePairings = [
+                { t1: 1, t2: 2 }, { t1: 2, t2: 3 }, { t1: 3, t2: 4 }, { t1: 4, t2: 5 }, { t1: 5, t2: 1 }
+            ];
+            let assignedDomCycleTracker = domCyclePairings.map(() => false); // Track if cycle pair is used
+
+            matches.forEach(match => {
+                for (let i = 0; i < domCyclePairings.length; i++) {
+                    if (assignedDomCycleTracker[i]) continue; // Skip if this cycle pair already assigned
+
+                    const p = domCyclePairings[i];
+                    if ((p.t1 === match.team1Id && p.t2 === match.team2Id) || (p.t1 === match.team2Id && p.t2 === match.team1Id)) {
+                        match.gameMode = "Domination";
+                        // Specific map for Day 5, TEAM Ishkhanov (4) vs TEAM Goncharov (3)
+                        if (match.day === 5 && ((match.team1Id === 4 && match.team2Id === 3) || (match.team1Id === 3 && match.team2Id === 4))) {
+                            match.mapName = "Yggsgard: Royal Palace";
+                            usedMaps.Domination.add("Yggsgard: Royal Palace");
+                        } else {
+                            match.mapName = getMapForMode("Domination");
+                        }
+                        assignedDomCycleTracker[i] = true;
+                        break; 
+                    }
+                }
+            });
+            
+            // 2. Handle Day 2 specific assignments
+            const day2Match_GoeneVsIshkhanov = matches.find(m => m.day === 2 && ((m.team1Id === 1 && m.team2Id === 4) || (m.team1Id === 4 && m.team2Id === 1)));
+            if (day2Match_GoeneVsIshkhanov) {
+                if (day2Match_GoeneVsIshkhanov.gameMode === "Domination") { // 1v4 is NOT a Dom cycle pair.
+                     console.warn("Warning: Day 2 Goene vs Ishkhanov was Domination, overriding to Convoy.");
+                     if(day2Match_GoeneVsIshkhanov.mapName) usedMaps.Domination.delete(day2Match_GoeneVsIshkhanov.mapName);
+                }
+                day2Match_GoeneVsIshkhanov.gameMode = "Convoy";
+                day2Match_GoeneVsIshkhanov.mapName = getMapForMode("Convoy");
+            } else { console.error("Error: Could not find Goene vs Ishkhanov match on Day 2."); }
+
+            const day2Match_RyzhovVsGoncharov = matches.find(m => m.day === 2 && ((m.team1Id === 2 && m.team2Id === 3) || (m.team1Id === 3 && m.team2Id === 2)));
+            if (day2Match_RyzhovVsGoncharov) { // This (2v3) IS a Dom cycle pair.
+                if (day2Match_RyzhovVsGoncharov.gameMode !== "Domination") { // Should already be Dom.
+                    console.warn("Warning: Day 2 Ryzhov vs Goncharov was not Dom by cycle, forcing Domination.");
+                     if(day2Match_RyzhovVsGoncharov.gameMode && day2Match_RyzhovVsGoncharov.mapName) {
+                        usedMaps[day2Match_RyzhovVsGoncharov.gameMode].delete(day2Match_RyzhovVsGoncharov.mapName);
+                     }
+                    day2Match_RyzhovVsGoncharov.gameMode = "Domination"; // Ensure it is
+                    day2Match_RyzhovVsGoncharov.mapName = getMapForMode("Domination"); // Re-pick map just in case
+                }
+            } else { console.error("Error: Could not find Ryzhov vs Goncharov match on Day 2."); }
+
+            // 3. Assign remaining non-Domination modes: 2 more Convoy, 2 Convergence
+            let nonDomModesToAssign = ["Convoy", "Convoy", "Convergence", "Convergence"];
+            for (let i = nonDomModesToAssign.length - 1; i > 0; i--) { // Shuffle
+                const j = Math.floor(Math.random() * (i + 1));
+                [nonDomModesToAssign[i], nonDomModesToAssign[j]] = [nonDomModesToAssign[j], nonDomModesToAssign[i]];
+            }
+
+            matches.forEach(match => {
+                if (!match.gameMode) { 
+                    if (nonDomModesToAssign.length > 0) {
+                        const mode = nonDomModesToAssign.pop();
+                        match.gameMode = mode;
+                        match.mapName = getMapForMode(mode);
+                    } else {
+                        console.error("Error: Ran out of non-Dom modes to assign. Match:", match.team1Id, "vs", match.team2Id);
+                    }
+                }
+            });
+            
+            teams.forEach(team => team.modesPlayed = { Domination: 0, Convoy: 0, Convergence: 0 });
+            let gameModeCounts = { Domination: 0, Convoy: 0, Convergence: 0 };
+            matches.forEach(match => {
+                if(match.gameMode) { 
+                    getTeam(match.team1Id).modesPlayed[match.gameMode]++;
+                    getTeam(match.team2Id).modesPlayed[match.gameMode]++;
+                    gameModeCounts[match.gameMode]++;
+                } else {
+                    console.error("FATAL ERROR: Match has no gameMode assigned after all passes!", match);
+                }
+            });
+            // console.log("Tournament Game Mode Split:", gameModeCounts);
+            // console.log("Final modes played per team:", teams.map(t => ({name:t.name, modes: t.modesPlayed })));
         }
 
 
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('startDateDisplay').textContent = formatDate(tournamentStartDate);
             
-            const playoffSat1Date = new Date(tournamentStartDate.getTime() + 5 * 7 * 24 * 60 * 60 * 1000); 
-            const playoffSat2Date = new Date(tournamentStartDate.getTime() + 6 * 7 * 24 * 60 * 60 * 1000); 
-            document.getElementById('playoffDate1').textContent = formatDate(playoffSat1Date);
-            document.getElementById('playoffDate2').textContent = formatDate(playoffSat2Date);
+            const playoffSat1Date = new Date(tournamentStartDate.getTime() + 5 * 7 * 24 * 60 * 60 * 1000); // Sat 6 (Week after group stage)
+            const playoffSat2Date = new Date(tournamentStartDate.getTime() + 6 * 7 * 24 * 60 * 60 * 1000); // Sat 7
+
+            document.getElementById('playoffDate1').textContent = formatDate(playoffSat1Date); 
+            document.getElementById('playoffDate2').textContent = formatDate(playoffSat2Date); 
+
             document.getElementById('playoffDate1Header').textContent = `(${formatDate(playoffSat1Date)})`;
             document.getElementById('playoffDate2Header').textContent = `(${formatDate(playoffSat2Date)})`;
             document.getElementById('playoffDate2HeaderThird').textContent = `(${formatDate(playoffSat2Date)})`;
@@ -859,12 +910,15 @@
             let currentDay = 0;
             let currentEventDate;
 
-            matches.forEach((match, index) => {
+            const sortedMatches = [...matches].sort((a,b) => a.day - b.day);
+
+            sortedMatches.forEach((match, index) => {
                 if (match.day !== currentDay) {
                     currentDay = match.day;
                     currentEventDate = new Date(tournamentStartDate.getTime() + (currentDay - 1) * 7 * 24 * 60 * 60 * 1000);
                     const dayHeader = document.createElement('h4');
-                    dayHeader.textContent = `Saturday ${currentDay} (${formatDate(currentEventDate)}) — Break: ${getTeamName(match.byeTeamId)}`;
+                    const byeTeam = getTeam(match.byeTeamId);
+                    dayHeader.textContent = `Saturday ${currentDay} (${formatDate(currentEventDate)}) — Break: ${byeTeam ? byeTeam.name : 'N/A'}`;
                     scheduleDiv.appendChild(dayHeader);
                 }
 
@@ -903,7 +957,6 @@
                 team.roundsWon = 0;
                 team.roundsLost = 0;
                 team.points = 0;
-                // dominationsPlayed is part of the map assignment logic, not reset with scores
             });
         }
 
@@ -973,6 +1026,7 @@
                         ${teamData.icon || ''} 
                         ${teamData.name}
                     </span>
+                    <span class="team-member-link-placeholder" title="Team member info (organizer to add link)">🔗</span>
                 `;
                 
                 row.insertCell().textContent = teamData.played;
