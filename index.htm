@@ -737,15 +737,24 @@
         ];
 
         // Scores are manually entered here by the organizer in the team1Score and team2Score properties
-        let matches = [
-            { day: 1, team1Id: 1, team2Id: 5, byeTeamId: 3, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
-            { day: 1, team1Id: 2, team2Id: 4, byeTeamId: 3, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
+       let matches = [
+            // SATURDAY 1 (Originally Saturday 4's matches) - Bye Team 4
+            { day: 1, team1Id: 1, team2Id: 2, byeTeamId: 4, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
+            { day: 1, team1Id: 5, team2Id: 3, byeTeamId: 4, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
+            
+            // SATURDAY 2 - Bye Team 5
             { day: 2, team1Id: 1, team2Id: 4, byeTeamId: 5, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
             { day: 2, team1Id: 2, team2Id: 3, byeTeamId: 5, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
+            
+            // SATURDAY 3 - Bye Team 2
             { day: 3, team1Id: 1, team2Id: 3, byeTeamId: 2, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
             { day: 3, team1Id: 5, team2Id: 4, byeTeamId: 2, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
-            { day: 4, team1Id: 1, team2Id: 2, byeTeamId: 4, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
-            { day: 4, team1Id: 5, team2Id: 3, byeTeamId: 4, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
+            
+            // SATURDAY 4 (Originally Saturday 1's matches) - Bye Team 3
+            { day: 4, team1Id: 1, team2Id: 5, byeTeamId: 3, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
+            { day: 4, team1Id: 2, team2Id: 4, byeTeamId: 3, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
+            
+            // SATURDAY 5 - Bye Team 1
             { day: 5, team1Id: 2, team2Id: 5, byeTeamId: 1, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
             { day: 5, team1Id: 4, team2Id: 3, byeTeamId: 1, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }  
         ];
