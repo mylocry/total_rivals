@@ -748,16 +748,16 @@
         };
 
         let teams = [
-            { id: 1, name: "TEAM X-Force",     color: 'var(--team-color-red)',    icon: pixelIcons.red,    played: 0, wins: 0, losses: 0, roundsWon: 0, roundsLost: 0, points: 0, modesPlayed: { Domination: 0, Convoy: 0, Convergence: 0 } },
-            { id: 2, name: "TEAM Ryzhov",    color: 'var(--team-color-blue)',   icon: pixelIcons.blue,   played: 0, wins: 0, losses: 0, roundsWon: 0, roundsLost: 0, points: 0, modesPlayed: { Domination: 0, Convoy: 0, Convergence: 0 } },
-            { id: 3, name: "TEAM MVPs", color: 'var(--team-color-green)',  icon: pixelIcons.green,  played: 0, wins: 0, losses: 0, roundsWon: 0, roundsLost: 0, points: 0, modesPlayed: { Domination: 0, Convoy: 0, Convergence: 0 } },
+            { id: 1, name: "TEAM X-Force",     color: 'var(--team-color-red)',    icon: pixelIcons.red,    played: 1, wins: 0, losses: 1, roundsWon: 0, roundsLost: 2, points: 0, modesPlayed: { Domination: 1, Convoy: 0, Convergence: 0 } },
+            { id: 2, name: "TEAM Ryzhov",    color: 'var(--team-color-blue)',   icon: pixelIcons.blue,   played: 1, wins: 1, losses: 0, roundsWon: 2, roundsLost: 0, points: 3, modesPlayed: { Domination: 1, Convoy: 0, Convergence: 0 } },
+            { id: 3, name: "TEAM MVPs", color: 'var(--team-color-green)',  icon: pixelIcons.green,  played: 1, wins: 1, losses: 0, roundsWon: 2, roundsLost: 1, points: 3, modesPlayed: { Domination: 0, Convoy: 0, Convergence: 1 } },
             { id: 4, name: "TEAM Scarlet Bitch", color: 'var(--team-color-yellow)', icon: pixelIcons.yellow, played: 0, wins: 0, losses: 0, roundsWon: 0, roundsLost: 0, points: 0, modesPlayed: { Domination: 0, Convoy: 0, Convergence: 0 } },
-            { id: 5, name: "TEAM Snap",      color: 'var(--team-color-purple)', icon: pixelIcons.purple, played: 0, wins: 0, losses: 0, roundsWon: 0, roundsLost: 0, points: 0, modesPlayed: { Domination: 0, Convoy: 0, Convergence: 0 } }
+            { id: 5, name: "TEAM Snap",      color: 'var(--team-color-purple)', icon: pixelIcons.purple, played: 1, wins: 0, losses: 1, roundsWon: 1, roundsLost: 2, points: 1, modesPlayed: { Domination: 0, Convoy: 0, Convergence: 1 } }
         ];
 
         let matches = [ 
-            { day: 1, team1Id: 1, team2Id: 2, byeTeamId: 4, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
-            { day: 1, team1Id: 5, team2Id: 3, byeTeamId: 4, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
+            { day: 1, team1Id: 1, team2Id: 2, byeTeamId: 4, team1Score: 0, team2Score: 3, mapName: null, gameMode: null, played: false }, 
+            { day: 1, team1Id: 5, team2Id: 3, byeTeamId: 4, team1Score: 1, team2Score: 3, mapName: null, gameMode: null, played: false }, 
             { day: 2, team1Id: 1, team2Id: 4, byeTeamId: 5, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
             { day: 2, team1Id: 2, team2Id: 3, byeTeamId: 5, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
             { day: 3, team1Id: 3, team2Id: 1, byeTeamId: 2, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
