@@ -610,11 +610,14 @@
 
         <div class="section scoring-section"> 
             <h2>How Points Work</h2>
-            <p>For the group stage, here’s how teams get points for each "Best of 3" match (scores are updated by the organizer after matches conclude):</p>
+            <p>For the group stage, here’s how teams get points for each match:</p>
             <ul>
-                <li><strong>WIN the Match:</strong> Give team <strong>3 Points!</strong></li>
-                <li><strong>LOSE the Match (but win 1 round in domination, or finish route at least one time on Convoy/Convergence):</strong> Team still gets <strong>1 Point!</strong> (Good effort!)</li>
-                <li><strong>LOSE the Match (and win 0 rounds, or fail to finish the route):</strong> Team gets <strong>0 Points.</strong></li>
+                <li><strong>For Convoy & Convergence:</strong> These are Best of 3 Rounds. Win 2 rounds to win the match.</li>
+                <li><strong>For Domination:</strong> These are Best of 3 MAPS. Win 2 maps to win the match.</li>
+                <hr class="custom-divider" style="margin: 15px 0;">
+                <li><strong>WIN the Match (2-0 or 2-1 in maps/rounds):</strong> Give team <strong>3 Points!</strong></li>
+                <li><strong>LOSE the Match 1-2 (win 1 map/round):</strong> Team still gets <strong>1 Point!</strong> (Good effort!)</li>
+                <li><strong>LOSE the Match 0-2 (win 0 maps/rounds):</strong> Team gets <strong>0 Points.</strong></li>
             </ul>
         </div>
 
@@ -644,8 +647,8 @@
                             <th>Played</th> 
                             <th>Won</th>
                             <th>Lost</th>
-                            <th>Rounds Won</th>
-                            <th>Rounds Lost</th>
+                            <th>Score For</th>
+                            <th>Score Against</th>
                             <th>Points</th> 
                         </tr>
                     </thead>
@@ -718,27 +721,6 @@
             return date.toLocaleDateString('en-US', options);
         }
 
-        const mapPools = {
-            Convergence: [
-                "Empire Of Eternal Night: Central Park", 
-                "Intergalactic Empire of Wakanda: Hall of Djalia", 
-                "Klyntar: Symbiotic Surface", 
-                "Tokyo 2099: Shin-Shibuya"
-            ],
-            Convoy: [
-                "Arakko", 
-                "Empire Of Eternal Night: Midtown", 
-                "Tokyo 2099: Spider-Islands", 
-                "Yggsgard: Yggdrasill Path"
-            ],
-            Domination: [
-                "Hellfire Gala: Krakoa", 
-                "Hydra Charteris Base: Hell’s Heaven", 
-                "Intergalactic Empire of Wakanda: Birnin T’Challa", 
-                "Yggsgard: Royal Palace"
-            ]
-        };
-
         const pixelIcons = {
             red: `<svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg"><path d="M2 2h6v6H2z" fill="currentColor"/></svg>`, 
             blue: `<svg viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg"><path d="M4 0h2v10H4zm-4 4h10v2H0z" fill="currentColor"/></svg>`, 
@@ -755,130 +737,28 @@
             { id: 5, name: "TEAM Snap",      color: 'var(--team-color-purple)', icon: pixelIcons.purple, played: 1, wins: 0, losses: 1, roundsWon: 1, roundsLost: 2, points: 1, modesPlayed: { Domination: 0, Convoy: 0, Convergence: 1 } }
         ];
 
+        // This is the FIXED schedule for the tournament.
+        // To update scores, edit the team1Score and team2Score values for the completed match.
+        // For Domination, score is maps won (e.g., 2-0, 2-1).
+        // For Convoy/Convergence, score is rounds won (e.g., 2-0, 2-1).
         let matches = [ 
-            { day: 1, team1Id: 1, team2Id: 2, byeTeamId: 4, team1Score: 0, team2Score: 3, mapName: null, gameMode: null, played: false }, 
-            { day: 1, team1Id: 5, team2Id: 3, byeTeamId: 4, team1Score: 1, team2Score: 3, mapName: null, gameMode: null, played: false }, 
-            { day: 2, team1Id: 1, team2Id: 4, byeTeamId: 5, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
-            { day: 2, team1Id: 2, team2Id: 3, byeTeamId: 5, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
-            { day: 3, team1Id: 3, team2Id: 1, byeTeamId: 2, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
-            { day: 3, team1Id: 5, team2Id: 4, byeTeamId: 2, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
-            { day: 4, team1Id: 1, team2Id: 5, byeTeamId: 3, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
-            { day: 4, team1Id: 4, team2Id: 2, byeTeamId: 3, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
-            { day: 5, team1Id: 2, team2Id: 5, byeTeamId: 1, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }, 
-            { day: 5, team1Id: 4, team2Id: 3, byeTeamId: 1, team1Score: null, team2Score: null, mapName: null, gameMode: null, played: false }  // TEAM Ishkhanov (4) vs TEAM Goncharov (3)
+            // Saturday 1
+            { day: 1, team1Id: 1, team2Id: 2, byeTeamId: 4, team1Score: 0, team2Score: 2, mapName: "Intergalactic Empire of Wakanda: Birnin T’Challa", gameMode: "Domination", played: true }, 
+            { day: 1, team1Id: 5, team2Id: 3, byeTeamId: 4, team1Score: 1, team2Score: 2, mapName: "Tokyo 2099: Shin-Shibuya", gameMode: "Convergence", played: true }, 
+            // Saturday 2
+            { day: 2, team1Id: 1, team2Id: 4, byeTeamId: 5, team1Score: null, team2Score: null, mapName: "Arakko", gameMode: "Convoy", played: false }, 
+            { day: 2, team1Id: 2, team2Id: 3, byeTeamId: 5, team1Score: null, team2Score: null, mapName: "Hellfire Gala: Krakoa", gameMode: "Domination", played: false }, 
+            // Saturday 3
+            { day: 3, team1Id: 3, team2Id: 1, byeTeamId: 2, team1Score: null, team2Score: null, mapName: "Intergalactic Empire of Wakanda: Hall of Djalia", gameMode: "Convergence", played: false }, 
+            { day: 3, team1Id: 5, team2Id: 4, byeTeamId: 2, team1Score: null, team2Score: null, mapName: "Hydra Charteris Base: Hell’s Heaven", gameMode: "Domination", played: false }, 
+            // Saturday 4
+            { day: 4, team1Id: 1, team2Id: 5, byeTeamId: 3, team1Score: null, team2Score: null, mapName: "Yggsgard: Royal Palace", gameMode: "Domination", played: false }, 
+            { day: 4, team1Id: 4, team2Id: 2, byeTeamId: 3, team1Score: null, team2Score: null, mapName: "Empire Of Eternal Night: Midtown", gameMode: "Convoy", played: false }, 
+            // Saturday 5
+            { day: 5, team1Id: 2, team2Id: 5, byeTeamId: 1, team1Score: null, team2Score: null, mapName: "Empire Of Eternal Night: Central Park", gameMode: "Convergence", played: false }, 
+            { day: 5, team1Id: 4, team2Id: 3, byeTeamId: 1, team1Score: null, team2Score: null, mapName: "Intergalactic Empire of Wakanda: Birnin T’Challa", gameMode: "Domination", played: false }
         ];
         
-        function getRandomElement(arr) {
-            if (!arr || arr.length === 0) return null;
-            return arr[Math.floor(Math.random() * arr.length)];
-        }
-        
-       function assignMapsAndModesToMatches() {
-            matches.forEach(m => { m.gameMode = null; m.mapName = null; }); 
-            teams.forEach(team => team.modesPlayed = { Domination: 0, Convoy: 0, Convergence: 0 });
-            let usedMaps = { Convergence: new Set(), Convoy: new Set(), Domination: new Set() };
-            
-            function getMapForMode(modeName) {
-                let pool = mapPools[modeName];
-                if (!pool || pool.length === 0) { console.error("Error: Empty or unknown mode for map pool:", modeName); return "Map Pool Error"; }
-                let availableMaps = pool.filter(map => !usedMaps[modeName].has(map));
-                if (availableMaps.length === 0) { 
-                    usedMaps[modeName].clear(); 
-                    availableMaps = [...pool];
-                }
-                const chosenMap = getRandomElement(availableMaps);
-                if (chosenMap) {
-                    usedMaps[modeName].add(chosenMap);
-                } else { 
-                    return getRandomElement(mapPools[modeName]);
-                }
-                return chosenMap;
-            }
-
-            // 1. Assign the 5 Domination games using the 5-cycle pairings
-            const domCyclePairings = [
-                { t1: 1, t2: 2 }, { t1: 2, t2: 3 }, { t1: 3, t2: 4 }, { t1: 4, t2: 5 }, { t1: 5, t2: 1 }
-            ];
-            let assignedDomCycleTracker = domCyclePairings.map(() => false); // Track if cycle pair is used
-
-            matches.forEach(match => {
-                for (let i = 0; i < domCyclePairings.length; i++) {
-                    if (assignedDomCycleTracker[i]) continue; // Skip if this cycle pair already assigned
-
-                    const p = domCyclePairings[i];
-                    if ((p.t1 === match.team1Id && p.t2 === match.team2Id) || (p.t1 === match.team2Id && p.t2 === match.team1Id)) {
-                        match.gameMode = "Domination";
-                        // Specific map for Day 5, TEAM Ishkhanov (4) vs TEAM Goncharov (3)
-                        if (match.day === 5 && ((match.team1Id === 4 && match.team2Id === 3) || (match.team1Id === 3 && match.team2Id === 4))) {
-                            match.mapName = "Yggsgard: Royal Palace";
-                            usedMaps.Domination.add("Yggsgard: Royal Palace");
-                        } else {
-                            match.mapName = getMapForMode("Domination");
-                        }
-                        assignedDomCycleTracker[i] = true;
-                        break; 
-                    }
-                }
-            });
-            
-            // 2. Handle Day 2 specific assignments
-            const day2Match_GoeneVsIshkhanov = matches.find(m => m.day === 2 && ((m.team1Id === 1 && m.team2Id === 4) || (m.team1Id === 4 && m.team2Id === 1)));
-            if (day2Match_GoeneVsIshkhanov) {
-                if (day2Match_GoeneVsIshkhanov.gameMode === "Domination") { // 1v4 is NOT a Dom cycle pair.
-                     console.warn("Warning: Day 2 Goene vs Ishkhanov was Domination, overriding to Convoy.");
-                     if(day2Match_GoeneVsIshkhanov.mapName) usedMaps.Domination.delete(day2Match_GoeneVsIshkhanov.mapName);
-                }
-                day2Match_GoeneVsIshkhanov.gameMode = "Convoy";
-                day2Match_GoeneVsIshkhanov.mapName = getMapForMode("Convoy");
-            } else { console.error("Error: Could not find Goene vs Ishkhanov match on Day 2."); }
-
-            const day2Match_RyzhovVsGoncharov = matches.find(m => m.day === 2 && ((m.team1Id === 2 && m.team2Id === 3) || (m.team1Id === 3 && m.team2Id === 2)));
-            if (day2Match_RyzhovVsGoncharov) { // This (2v3) IS a Dom cycle pair.
-                if (day2Match_RyzhovVsGoncharov.gameMode !== "Domination") { // Should already be Dom.
-                    console.warn("Warning: Day 2 Ryzhov vs Goncharov was not Dom by cycle, forcing Domination.");
-                     if(day2Match_RyzhovVsGoncharov.gameMode && day2Match_RyzhovVsGoncharov.mapName) {
-                        usedMaps[day2Match_RyzhovVsGoncharov.gameMode].delete(day2Match_RyzhovVsGoncharov.mapName);
-                     }
-                    day2Match_RyzhovVsGoncharov.gameMode = "Domination"; // Ensure it is
-                    day2Match_RyzhovVsGoncharov.mapName = getMapForMode("Domination"); // Re-pick map just in case
-                }
-            } else { console.error("Error: Could not find Ryzhov vs Goncharov match on Day 2."); }
-
-            // 3. Assign remaining non-Domination modes: 2 more Convoy, 2 Convergence
-            let nonDomModesToAssign = ["Convoy", "Convoy", "Convergence", "Convergence"];
-            for (let i = nonDomModesToAssign.length - 1; i > 0; i--) { // Shuffle
-                const j = Math.floor(Math.random() * (i + 1));
-                [nonDomModesToAssign[i], nonDomModesToAssign[j]] = [nonDomModesToAssign[j], nonDomModesToAssign[i]];
-            }
-
-            matches.forEach(match => {
-                if (!match.gameMode) { 
-                    if (nonDomModesToAssign.length > 0) {
-                        const mode = nonDomModesToAssign.pop();
-                        match.gameMode = mode;
-                        match.mapName = getMapForMode(mode);
-                    } else {
-                        console.error("Error: Ran out of non-Dom modes to assign. Match:", match.team1Id, "vs", match.team2Id);
-                    }
-                }
-            });
-            
-            teams.forEach(team => team.modesPlayed = { Domination: 0, Convoy: 0, Convergence: 0 });
-            let gameModeCounts = { Domination: 0, Convoy: 0, Convergence: 0 };
-            matches.forEach(match => {
-                if(match.gameMode) { 
-                    getTeam(match.team1Id).modesPlayed[match.gameMode]++;
-                    getTeam(match.team2Id).modesPlayed[match.gameMode]++;
-                    gameModeCounts[match.gameMode]++;
-                } else {
-                    console.error("FATAL ERROR: Match has no gameMode assigned after all passes!", match);
-                }
-            });
-            // console.log("Tournament Game Mode Split:", gameModeCounts);
-            // console.log("Final modes played per team:", teams.map(t => ({name:t.name, modes: t.modesPlayed })));
-        }
-
-
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('startDateDisplay').textContent = formatDate(tournamentStartDate);
             
@@ -892,7 +772,7 @@
             document.getElementById('playoffDate2Header').textContent = `(${formatDate(playoffSat2Date)})`;
             document.getElementById('playoffDate2HeaderThird').textContent = `(${formatDate(playoffSat2Date)})`;
 
-            assignMapsAndModesToMatches(); 
+            // No longer need to assign maps and modes, they are hardcoded
             calculateTeamStatsFromMatches(); 
             renderMatchSchedule(); 
         });
@@ -955,7 +835,7 @@
                 team.played = 0;
                 team.wins = 0;
                 team.losses = 0;
-                team.roundsWon = 0;
+                team.roundsWon = 0; // This will represent MAPS won for Domination, ROUNDS for others
                 team.roundsLost = 0;
                 team.points = 0;
             });
@@ -964,12 +844,14 @@
         function calculateTeamStatsFromMatches() { 
             resetTeamStats();
             matches.forEach((match) => {
-                const t1Rounds = match.team1Score;
-                const t2Rounds = match.team2Score;
+                const t1Score = match.team1Score;
+                const t2Score = match.team2Score;
                 
-                if (typeof t1Rounds === 'number' && typeof t2Rounds === 'number' &&
-                    ((t1Rounds === 2 && (t2Rounds === 0 || t2Rounds === 1)) ||
-                     (t2Rounds === 2 && (t1Rounds === 0 || t1Rounds === 1)))) {
+                // The score represents maps won for Domination, or rounds won for others.
+                // The logic remains the same: first to 2 wins.
+                if (typeof t1Score === 'number' && typeof t2Score === 'number' &&
+                    ((t1Score === 2 && (t2Score === 0 || t2Score === 1)) ||
+                     (t2Score === 2 && (t1Score === 0 || t1Score === 1)))) {
                     match.played = true;
                 } else {
                     match.played = false; 
@@ -981,22 +863,19 @@
 
                 if (!team1 || !team2) return;
 
-                let r1 = t1Rounds;
-                let r2 = t2Rounds;
-
                 team1.played++;
                 team2.played++;
-                team1.roundsWon += r1;
-                team1.roundsLost += r2;
-                team2.roundsWon += r2;
-                team2.roundsLost += r1;
+                team1.roundsWon += t1Score; // Using roundsWon to store score for (maps or rounds)
+                team1.roundsLost += t2Score;
+                team2.roundsWon += t2Score;
+                team2.roundsLost += t1Score;
 
-                if (r1 === 2) { 
+                if (t1Score === 2) { 
                     team1.wins++; team2.losses++; team1.points += 3;
-                    if (r2 === 1) { team2.points += 1; }
-                } else if (r2 === 2) { 
+                    if (t2Score === 1) { team2.points += 1; }
+                } else if (t2Score === 2) { 
                     team2.wins++; team1.losses++; team2.points += 3;
-                    if (r1 === 1) { team1.points += 1; }
+                    if (t1Score === 1) { team1.points += 1; }
                 }
             });
             renderLeagueTable();
@@ -1085,8 +964,8 @@
                                         <th>Pld</th>
                                         <th>W</th>
                                         <th>L</th>
-                                        <th>RW</th>
-                                        <th>RL</th>
+                                        <th>Score For</th>
+                                        <th>Score Against</th>
                                         <th>Pts</th>
                                     </tr>
                                 </thead>
