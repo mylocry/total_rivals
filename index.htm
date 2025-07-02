@@ -800,7 +800,7 @@
                     currentEventDate = new Date(tournamentStartDate.getTime() + (currentDay - 1) * 7 * 24 * 60 * 60 * 1000);
                     const dayHeader = document.createElement('h4');
                     const byeTeam = getTeam(match.byeTeamId);
-                    dayHeader.textContent = `Saturday ${currentDay} (${formatDate(currentEventDate)}) — Break: ${byeTeam ? byeTeam.name : 'N/A'}`;
+                    dayHeader.textContent = `Saturday ${currentDay} (${formatDate(currentEventDate)})`;
                     scheduleDiv.appendChild(dayHeader);
                 }
 
