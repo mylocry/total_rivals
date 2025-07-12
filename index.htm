@@ -940,8 +940,8 @@
             const anystats = teams.some(t => t.played > 0);
 
             if (sortedTeams.length >= 4 && anystats) { 
-                setMatchText(sf1Div, getTeamName(sortedTeams[0].id), getTeamName(sortedTeams[1].id), "Seed 1", "Seed 4", "(Match A)");
-                setMatchText(sf2Div, getTeamName(sortedTeams[2].id), getTeamName(sortedTeams[3].id), "Seed 2", "Seed 3", "(Match B)");
+                setMatchText(sf1Div, getTeamName(sortedTeams[0].id), getTeamName(sortedTeams[3].id), "Seed 1", "Seed 4", "(Match A)");
+                setMatchText(sf2Div, getTeamName(sortedTeams[1].id), getTeamName(sortedTeams[2].id), "Seed 2", "Seed 3", "(Match B)");
                 setMatchText(finalDiv, "Winner of Match A", "Winner of Match B", "TBD", "TBD", "(For the Championship!)");
                 setMatchText(thirdPlaceDiv, "Loser of Match A", "Loser of Match B", "TBD", "TBD", "(For Bronze!)");
             } else { 
